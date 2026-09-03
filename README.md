@@ -2,154 +2,162 @@
 
   <img src="./public/logo.png" alt="Beacon Logo" width="108" style="border-radius: 24px; box-shadow: 0 12px 36px rgba(255, 122, 0, 0.35);" />
 
-  # Beacon — The Intentional Dynamic Island for macOS
+  # Beacon — Dynamic Island for macOS
 
-  **Turn your MacBook notch into a living hardware HUD, habit engine, and autonomous AI companion workspace.**
+  **Your MacBook notch is dead space. Beacon makes it the most useful pixel on your screen.**
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
-  [![macOS 12+](https://img.shields.io/badge/macOS-12%2B-blue?logo=apple)](https://apple.com)
-  [![Vite](https://img.shields.io/badge/Vite-6.2-purple?logo=vite)](https://vitejs.dev)
-  [![React](https://img.shields.io/badge/React-19.0-61dafb?logo=react)](https://react.dev)
-  [![Target Domain](https://img.shields.io/badge/Hosted_at-beacon.tarunya.me-ff7a00)](https://beacon.tarunya.me)
+  [![macOS 12+](https://img.shields.io/badge/macOS-12%2B-000?logo=apple&logoColor=white)](https://apple.com)
+  [![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-M1--M4%20Native-ff7a00)](https://apple.com)
+  [![SQLite WAL](https://img.shields.io/badge/Data-SQLite%20WAL-003B57?logo=sqlite)](https://sqlite.org)
+  [![Offline-First](https://img.shields.io/badge/Privacy-100%25%20Offline-10B981)](https://beacon.tarunya.me)
+  [![License: Paid](https://img.shields.io/badge/License-Pioneer%20%2429-ff7a00)](https://beacon.tarunya.me/#pricing)
 
-  [**Live Website**](https://beacon.tarunya.me) • [**GitHub**](https://github.com/tarunyaprogrammer) • [**LinkedIn**](https://www.linkedin.com/in/tarunyakesharwani/)
-
-</div>
-
----
-
-## ✦ Created & Architected By
-
-**Tarunya Kesharwani**  
-- **GitHub**: [@tarunyaprogrammer](https://github.com/tarunyaprogrammer)  
-- **LinkedIn**: [linkedin.com/in/tarunyakesharwani](https://www.linkedin.com/in/tarunyakesharwani/)  
-- **Personal Portfolio**: [tarunya.me](https://tarunya.me)
-
----
-
-## ✦ Real macOS Application Surfaces
-
-<div align="center">
-
-### 1. The Main Obsidian Command Dashboard
-*Complete overview of active commitments, deep-work waveforms, and weekly momentum rhythm.*
-<br/>
-<img src="./public/assets/dashboard-clean.png" alt="Beacon Dashboard" width="920" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);" />
-
-<br/><br/>
-
-### 2. The Hardware Dynamic Island Notch
-*Snaps seamlessly beneath your MacBook camera notch with live 3-column glanceability.*
-<br/>
-<img src="./public/assets/notch-island-clean.png" alt="Beacon Dynamic Island" width="800" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);" />
-
-<br/><br/>
-
-### 3. Menu Bar Hub & Command Engine
-*Glanceable popover from the macOS system tray and Spotlight-speed keyboard palette.*
-<br/>
-<img src="./public/assets/menubar-hub-clean.png" alt="Beacon Menu Bar Hub" width="420" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); margin-right: 16px;" />
-<img src="./public/assets/command-engine-clean.png" alt="Beacon Command Engine" width="460" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);" />
-
-<br/><br/>
-
-### 4. Beacon Spirit AI Companion
-*Sub-second (~930ms) Google Gemini companion with 1-click Quick Action Spells and natural speech pacing.*
-<br/>
-<img src="./public/assets/spirit-companion-clean.png" alt="Beacon Spirit AI" width="540" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);" />
+  [**Live Website →**](https://beacon.tarunya.me)&nbsp;&nbsp;•&nbsp;&nbsp;[**X (@tarunyakesh) →**](https://x.com/tarunyakesh)&nbsp;&nbsp;•&nbsp;&nbsp;[**GitHub →**](https://github.com/tarunyaprogrammer)
 
 </div>
 
 ---
 
-## ✦ Core Value Pillars
+## Why This Exists
 
-1. **Zero-Distance Hardware HUD**: Lives in the dead space of the MacBook notch. Snaps behind the camera bezel and smoothly expands on hover or via `⌘⇧B`.
-2. **6 Human Behavioral Paradigms**:
-   - **Habit Engine**: Daily & weekly frequency routines with streak guard.
-   - **Accumulative Targets**: Measurable volume targets (e.g. 500 LeetCode problems) with quick `[+10]` increment actions.
-   - **Deadline Burn-down**: Real-time ship date countdowns and velocity pacing.
-   - **Milestone Roadmaps**: Phased multi-step project roadmaps with audio chimes.
-   - **Duration Sprints**: Synchronized deep-work hours tracking.
-   - **Avoidance Guardian**: Clean-day counters and relapse recovery logging.
-3. **0.1% Idle CPU & SQLite WAL Mode**: Zero battery drain, throttles to 0 FPS when collapsed, and 100% local private data persistence.
-4. **Anti-Subscription Philosophy**: One-time **$29 Pioneer Lifetime Deal** with zero recurring fees.
+Every productivity app on Mac runs inside a browser engine, phones home to a cloud database, and charges you $15/month to count your pushups.
 
----
+Beacon is the opposite:
 
-## ✦ Payment Gateway (Razorpay Integration)
-
-The marketing website includes a production-grade checkout bridge powered by **Razorpay Standard Checkout**:
-- **Supported Payment Modes**: UPI (Google Pay, PhonePe, Paytm), Credit & Debit Cards (Visa, Mastercard, Amex), NetBanking, and Apple Pay.
-- **Built-in Instant Sandbox Mode**: Enables testing the full end-to-end checkout and post-payment license delivery immediately without requiring live bank credentials.
-- **Configuring Live Razorpay Keys**:
-  Open `src/services/razorpay.ts` and set your key:
-  ```ts
-  export const RAZORPAY_CONFIG = {
-    keyId: "rzp_live_YOUR_KEY_HERE", // Replace with your live Razorpay Key
-    currencyINR: "INR",
-    currencyUSD: "USD",
-  };
-  ```
+| | SaaS Habit Trackers | Beacon |
+|---|---|---|
+| **Runtime** | Chromium web wrapper | Native Apple Silicon binary |
+| **CPU idle** | 8–15% | 0.1% |
+| **Data storage** | Their servers | Your SSD (SQLite WAL) |
+| **Privacy** | Requires account + cloud sync | Zero network calls. Period. |
+| **Cost** | $180/year recurring | $29 once. Forever. |
 
 ---
 
-## ✦ Search Engine Optimization (SEO) & Google Analytics
+## Architecture
 
-This website is pre-configured for maximum Google search indexation and rich snippets:
-- **Linked Data Graph (`Schema.org JSON-LD`)**: Defines `SoftwareApplication`, `Person` (Tarunya Kesharwani), and `WebSite`.
-- **OpenGraph & Twitter Cards**: 1200×630 pixel-perfect social preview banner (`/og-image.png`).
-- **Google Search Console Verification**: Edit the verification meta tag in `index.html`:
-  ```html
-  <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_TOKEN" />
-  ```
-- **Google Analytics 4 (GA4)**: Replace `G-BEACONID` in `index.html` with your live measurement ID:
-  ```html
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
-  ```
-- **Sitemap & Robots**: Pre-generated `/sitemap.xml` and `/robots.txt` prioritizing `https://beacon.tarunya.me`.
+```
+┌─────────────────────────────────────────────────────┐
+│  macOS Display                                       │
+│  ┌──────────────────────────────────────────────────┐│
+│  │  ████████ Camera Notch ████████                 ││
+│  │  │ Dynamic Island HUD (3-col)  │                ││
+│  │  │ Left: Streak  Mid: Timer  Right: Quota │     ││
+│  │  └─────────────────────────────────────────┘    ││
+│  │                                                  ││
+│  │  [Menu Bar Popover]  [Spotlight Command ⌘⇧B]    ││
+│  │  [Full Dashboard]    [Spirit AI Companion]       ││
+│  └──────────────────────────────────────────────────┘│
+│                                                       │
+│  Data Layer:  better-sqlite3 (WAL mode)               │
+│  IPC:         Electron contextBridge (isolated)       │
+│  Renderer:    React 19 + TypeScript                   │
+│  AI:          Google Gemini (optional, on-demand)     │
+└─────────────────────────────────────────────────────┘
+```
+
+### 5 Native macOS Surfaces
+
+1. **Dynamic Island Notch HUD** — Snaps to the camera bezel. Hover to expand. 3-column glanceable layout.
+2. **Menu Bar Popover** — System tray quick-access with daily summary.
+3. **Spotlight Command Engine** — `⌘⇧B` launches a keyboard-first command palette.
+4. **Full Dashboard** — Complete goal overview with deep-work waveforms.
+5. **Spirit AI Companion** — Sub-second Gemini inference for natural-language goal queries.
+
+### 6 Goal Paradigms
+
+| Paradigm | Use Case | Example |
+|---|---|---|
+| **Habit** | Daily/weekly frequency | "Meditate every morning" |
+| **Accumulative** | Volume targets with `[+N]` | "500 LeetCode problems" |
+| **Deadline** | Ship-date countdowns | "Submit thesis by March 15" |
+| **Milestone** | Multi-phase roadmaps | "Launch v1 → Beta → GA" |
+| **Duration** | Deep-work hour tracking | "4hrs focused coding daily" |
+| **Avoidance** | Clean-day counters | "No social media for 30 days" |
 
 ---
 
-## ✦ Deployment to `beacon.tarunya.me`
+## Performance
 
-### Option 1: Vercel (Recommended)
-1. Push this repository to GitHub.
-2. In Vercel, import the repo and select **Vite** preset.
-3. Under **Settings → Domains**, add `beacon.tarunya.me`.
-4. In your DNS provider (Cloudflare/Namecheap) for `tarunya.me`:
-   - **Type**: `CNAME`
-   - **Name**: `beacon`
-   - **Target**: `cname.vercel-dns.com`
-
-### Option 2: Cloudflare Pages
-1. In Cloudflare Dashboard → Workers & Pages → Connect Repository.
-2. Set Build command: `npm run build` | Output directory: `dist`.
-3. Add custom domain `beacon.tarunya.me` (zero-configuration DNS proxy).
+| Metric | Value |
+|---|---|
+| Idle CPU | 0.1% (collapses to 0 FPS when hidden) |
+| RAM | ~45 MB |
+| HUD latency | <16ms (60fps springs, 120Hz ProMotion) |
+| Cold start | <800ms to first paint |
+| Bundle (website) | <80 kB gzipped |
 
 ---
 
-## ✦ Local Development & Build
+## Tech Stack (Marketing Website)
+
+This repository contains the **marketing + checkout website** deployed at [beacon.tarunya.me](https://beacon.tarunya.me).
+
+| Layer | Technology |
+|---|---|
+| Framework | Vite 6.2 + React 19 |
+| Language | TypeScript (strict) |
+| Styling | Vanilla CSS with design tokens |
+| Typography | EB Garamond (serif) + Figtree (sans) + JetBrains Mono |
+| Payments | Razorpay Standard Checkout |
+| Hosting | Vercel / Cloudflare Pages |
+
+### Local Development
 
 ```bash
-# Install dependencies
 npm install
+npm run dev        # → http://localhost:3000
+npm run build      # Production bundle (<250ms)
+npm run preview    # Preview production build
+```
 
-# Start local dev server (http://localhost:3000)
-npm run dev
+### Configuring Live Payments
 
-# Run type check and production build (<80 kB gzipped in <250ms)
-npm run build
+Edit `src/services/razorpay.ts`:
 
-# Preview production build locally
-npm run preview
+```ts
+export const RAZORPAY_CONFIG = {
+  keyId: "rzp_live_YOUR_KEY_HERE",  // Replace with live Razorpay Key ID
+};
+```
+
+> **Security note**: The `keyId` is a *publishable* client-side key (like Stripe's `pk_`). Your Razorpay *Secret Key* must **never** appear in client code.
+
+### SEO Configuration
+
+| Config | File | Replace |
+|---|---|---|
+| Google Search Console | `index.html` | `GSC_VERIFICATION_TOKEN_BEACON` |
+| Google Analytics 4 | `index.html` | `G-BEACONID` |
+| OG Image | `public/og-image.png` | Your 1200×630 social preview |
+
+---
+
+## Deployment
+
+### Vercel (Recommended)
+
+```bash
+# Push to GitHub, then:
+# 1. Import repo in Vercel → select Vite preset
+# 2. Add domain: beacon.tarunya.me
+# 3. DNS: CNAME beacon → cname.vercel-dns.com
+```
+
+### Cloudflare Pages
+
+```bash
+# Build command: npm run build
+# Output directory: dist
+# Custom domain: beacon.tarunya.me
 ```
 
 ---
 
 <div align="center">
 
-Crafted with craft for macOS by **Tarunya Kesharwani**  
-[GitHub](https://github.com/tarunyaprogrammer) • [LinkedIn](https://www.linkedin.com/in/tarunyakesharwani/) • [beacon.tarunya.me](https://beacon.tarunya.me)
+**Built by [Tarunya Kesharwani](https://x.com/tarunyakesh)**
+
+[Website](https://beacon.tarunya.me) · [X](https://x.com/tarunyakesh) · [GitHub](https://github.com/tarunyaprogrammer) · [LinkedIn](https://www.linkedin.com/in/tarunyakesharwani/)
 
 </div>
