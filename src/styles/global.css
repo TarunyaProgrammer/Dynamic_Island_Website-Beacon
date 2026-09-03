@@ -266,3 +266,74 @@ body {
     padding-bottom: 60px !important;
   }
 }
+
+/* ==========================================================================
+   CONVERSION ANIMATIONS & PSYCHOLOGICAL TRIGGERS
+   ========================================================================== */
+
+/* Social Proof Toast Animations */
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateX(-100%) scale(0.8); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes toastSlideOut {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to { opacity: 0; transform: translateX(-100%) scale(0.8); }
+}
+
+/* Sticky Mobile CTA Slide Up */
+@keyframes stickySlideUp {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulsing Glow on Primary CTA */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(15, 17, 23, 0.24), 0 0 0 0 rgba(217, 119, 6, 0); }
+  50% { box-shadow: 0 4px 20px rgba(15, 17, 23, 0.24), 0 0 0 8px rgba(217, 119, 6, 0.12); }
+}
+.btn-obsidian { animation: ctaPulse 3s ease-in-out infinite; }
+.btn-obsidian:hover { animation: none; }
+
+/* Animated Gradient on Hero Accent Text */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.serif-italic {
+  background: linear-gradient(135deg, #D97706, #F59E0B, #D97706, #B45309);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Scroll Reveal Entrance */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+section { animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* Viewing Now Indicator Pulse */
+@keyframes liveDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.6); }
+}
+
+/* Sticky CTA: Desktop hide, Mobile show */
+.sticky-mobile-cta { display: none; }
+@media (max-width: 768px) {
+  .sticky-mobile-cta { display: block !important; }
+  /* Add bottom padding to body so footer isn't hidden behind sticky CTA */
+  body { padding-bottom: 88px; }
+  /* Toast on mobile: bottom-right, above sticky CTA */
+  [role="status"] {
+    bottom: 100px !important;
+    left: 12px !important;
+    right: 12px !important;
+    max-width: none !important;
+  }
+}

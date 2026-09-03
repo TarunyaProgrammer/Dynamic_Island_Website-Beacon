@@ -1,5 +1,5 @@
 import React from "react";
-import { Apple, ArrowRight, Check, Flame, Users, Sparkles } from "lucide-react";
+import { Apple, ArrowRight, Users, Sparkles } from "lucide-react";
 
 interface HeroSectionProps {
   onOpenPricing: () => void;
@@ -13,6 +13,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   currency,
 }) => {
   const priceDisplay = currency === "INR" ? "₹2,499" : "$29";
+
+
 
   return (
     <section
@@ -110,24 +112,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <span>30-Day Money-Back Guarantee</span>
         </div>
 
-        {/* Floating Context Proof Badges */}
+        {/* Micro-Testimonial Social Proof */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: "16px",
+            gap: "12px",
             flexWrap: "wrap",
           }}
         >
           <div className="floating-obsidian-badge">
-            <Check size={14} color="#10b981" />
-            <span>Logged +10 LeetCode in 1 Glance</span>
+            <Sparkles size={13} color="var(--accent-solar)" />
+            <span>"Replaced 3 menu bar apps with one glance"</span>
           </div>
 
           <div className="floating-white-badge">
-            <Flame size={14} color="var(--accent-solar)" />
-            <span>14-day Deep Work Streak Active</span>
+            <Users size={13} color="var(--accent-solar)" />
+            <span>Join 384 pioneers already shipping with Beacon</span>
           </div>
         </div>
       </div>

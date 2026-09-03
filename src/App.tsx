@@ -13,6 +13,8 @@ import { FounderLetter } from "./components/FounderLetter";
 import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { BeaconSpiritCinematic } from "./components/BeaconSpiritCinematic";
+import { SocialProofToast } from "./components/SocialProofToast";
+import { StickyMobileCTA } from "./components/StickyMobileCTA";
 import { RazorpayModal } from "./components/RazorpayModal";
 import { LicenseSuccessModal } from "./components/LicenseSuccessModal";
 import { PricingPlan, LicenseReceipt } from "./types";
@@ -141,6 +143,12 @@ export const App: React.FC = () => {
         onClose={() => setIsCheckoutOpen(false)}
         onPaymentSuccess={handlePaymentSuccess}
       />
+
+      {/* Conversion: Floating Social Proof Toast */}
+      <SocialProofToast />
+
+      {/* Conversion: Sticky Mobile Bottom CTA */}
+      <StickyMobileCTA onOpenPricing={handleOpenPricing} currency={currency} />
 
       {/* License Success & Confetti Delivery Modal */}
       <LicenseSuccessModal
