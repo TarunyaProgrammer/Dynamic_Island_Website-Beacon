@@ -27,6 +27,7 @@
   --accent-solar-glow: rgba(217, 119, 6, 0.2);
   --accent-amber: #F59E0B;
   --accent-emerald: #059669;
+  --accent-forest: #0F1117; /* Fallback alias to obsidian */
   --accent-slate: #1E293B;
 
   /* Hairlines & Borders */
