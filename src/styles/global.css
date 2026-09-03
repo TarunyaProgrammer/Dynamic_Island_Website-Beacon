@@ -50,7 +50,7 @@ body {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-solar);
+  color: var(--text-amber-contrast);
   font-family: var(--font-sans);
 }
 
