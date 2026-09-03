@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
-    <footer
+    <footer id="footer"
       style={{
         borderTop: "1px solid var(--border-subtle)",
         backgroundColor: "var(--bg-canvas-subtle)",
