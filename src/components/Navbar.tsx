@@ -48,9 +48,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currency, onToggleCurrency, onOp
             src="/logo.png"
             alt="Beacon"
             style={{
-              width: "26px",
-              height: "26px",
-              borderRadius: "6px",
+              width: "32px",
+              height: "32px",
+              objectFit: "contain",
             }}
           />
           <span

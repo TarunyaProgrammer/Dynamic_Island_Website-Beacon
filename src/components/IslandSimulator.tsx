@@ -438,7 +438,7 @@ export const IslandSimulator: React.FC = () => {
                 <div style={{ width: "26px", height: "26px", borderRadius: "6px", backgroundColor: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}></div>
                 <div style={{ width: "26px", height: "26px", borderRadius: "6px", backgroundColor: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px" }}>🧭</div>
                 <div style={{ width: "26px", height: "26px", borderRadius: "6px", backgroundColor: "#1e2230", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px" }}>&gt;_</div>
-                <img src="/logo.png" alt="Beacon" style={{ width: "26px", height: "26px", borderRadius: "6px" }} />
+                <img src="/logo.png" alt="Beacon" style={{ width: "30px", height: "30px", objectFit: "contain" }} />
               </div>
             </div>
           </div>
