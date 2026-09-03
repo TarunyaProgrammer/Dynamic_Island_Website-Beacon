@@ -60,10 +60,12 @@ export const Footer: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                                    <a href="https://x.com/tarunyakesh" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-body)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                  <a href="https://x.com/tarunyakesh" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-body)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
                     <span>X (@tarunyakesh)</span>
                     <ArrowUpRight size={11} color="var(--text-muted)" />
                   </a>
+                </li>
+                <li>
                   <a href="https://www.linkedin.com/in/tarunyakesharwani/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-body)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
                     <span>LinkedIn</span>
                     <ArrowUpRight size={11} />
