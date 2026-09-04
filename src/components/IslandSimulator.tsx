@@ -431,7 +431,13 @@ export const IslandSimulator: React.FC = () => {
               <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "420px", backgroundColor: "#0b0d14", borderRadius: "14px", padding: "14px", border: "1px solid rgba(255,255,255,0.15)", zIndex: 45, boxShadow: "0 24px 60px rgba(0,0,0,0.9)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "6px 10px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>
                   <Search size={14} color="rgba(255,255,255,0.5)" />
-                  <input type="text" defaultValue="+10 SaaS App" style={{ background: "none", border: "none", color: "#fff", fontSize: "12px", outline: "none", width: "100%" }} />
+                  <input
+                    type="text"
+                    defaultValue="+10 SaaS App"
+                    placeholder="Type a command or search goals..."
+                    aria-label="Command search input"
+                    style={{ background: "none", border: "none", color: "#fff", fontSize: "12px", outline: "none", width: "100%" }}
+                  />
                   <span style={{ fontSize: "9px", color: "rgba(255,255,255,0.4)" }}>esc</span>
                 </div>
               </div>
