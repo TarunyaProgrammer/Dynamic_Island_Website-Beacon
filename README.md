@@ -10,7 +10,8 @@
   [![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-M1--M4%20Native-ff7a00)](https://apple.com)
   [![SQLite WAL](https://img.shields.io/badge/Data-SQLite%20WAL-003B57?logo=sqlite)](https://sqlite.org)
   [![Offline-First](https://img.shields.io/badge/Privacy-100%25%20Offline-10B981)](https://beacon.tarunya.me)
-  [![License: Paid](https://img.shields.io/badge/License-Pioneer%20%2418-ff7a00)](https://beacon.tarunya.me/#pricing)
+  [![License: Proprietary](https://img.shields.io/badge/License-Proprietary%20%C2%A9%202026-ff7a00)](./LICENSE)
+  [![License: Pioneer $18](https://img.shields.io/badge/Buy-Pioneer%20License%20%2418-0F1117)](https://beacon.tarunya.me/#pricing)
 
   [**Live Website →**](https://beacon.tarunya.me)&nbsp;&nbsp;•&nbsp;&nbsp;[**X (@tarunyakesh) →**](https://x.com/tarunyakesh)&nbsp;&nbsp;•&nbsp;&nbsp;[**GitHub →**](https://github.com/tarunyaprogrammer)
 

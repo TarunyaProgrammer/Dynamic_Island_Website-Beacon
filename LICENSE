@@ -1,0 +1,240 @@
+BEACON PROPRIETARY SOFTWARE LICENSE
+Copyright (c) 2024–2026 Tarunya Kesharwani. All Rights Reserved.
+
+================================================================================
+                          IMPORTANT — READ CAREFULLY
+================================================================================
+
+This Beacon Proprietary Software License Agreement ("Agreement") is a legal
+agreement between you ("Licensee") and Tarunya Kesharwani, sole proprietor and
+author of the Beacon software product ("Licensor").
+
+By downloading, installing, copying, accessing, or using any portion of this
+software, its source code, assets, or documentation (collectively, the
+"Software"), you agree to be bound by the terms of this Agreement. If you do
+not agree to these terms, do not download, install, or use the Software.
+
+================================================================================
+1. DEFINITIONS
+================================================================================
+
+"Software" means the Beacon macOS application, its compiled binary, all source
+code in this repository, all associated brand assets (logos, icons, imagery,
+typography), all marketing copy, website source code, design systems, and any
+other files contained in this repository or distributed by Licensor.
+
+"End-User License" means the limited, non-exclusive personal-use license granted
+to a paying customer of Beacon solely to run the compiled binary on their own
+personal macOS device(s).
+
+"Pioneer License" means the specific one-time-purchase End-User License sold at
+beacon.tarunya.me, granting one (1) personal seat to the purchaser.
+
+"Unauthorized Use" means any use of the Software beyond the explicit, narrow
+grant described in Section 2 of this Agreement.
+
+================================================================================
+2. GRANT OF LICENSE (PAYING END-USERS ONLY)
+================================================================================
+
+Subject to payment of the applicable license fee and continued compliance with
+this Agreement, Licensor grants the paying customer a limited, non-exclusive,
+non-transferable, non-sublicensable, revocable license to:
+
+  (a) Install and run the compiled Beacon binary on up to one (1) personal macOS
+      device owned or controlled by the customer; and
+
+  (b) Use the Software solely for the customer's own personal productivity
+      purposes.
+
+This license does not grant any rights to the source code, brand assets,
+website source code, design systems, or documentation contained in this
+repository.
+
+================================================================================
+3. RESTRICTIONS — ALL PARTIES
+================================================================================
+
+Except for the narrow End-User License granted in Section 2 above, all other
+rights are EXPRESSLY RESERVED by Licensor. Without limiting the foregoing,
+the following are strictly prohibited without prior written permission:
+
+  (a) COPY & REDISTRIBUTION — You may not copy, reproduce, publish, distribute,
+      sell, sublicense, or otherwise make the Software or any portion thereof
+      available to any third party.
+
+  (b) MODIFICATION & DERIVATIVE WORKS — You may not modify, adapt, translate,
+      create derivative works from, or incorporate any portion of the Software
+      into another product or project.
+
+  (c) REVERSE ENGINEERING — You may not decompile, disassemble, reverse
+      engineer, decode, decrypt, or otherwise attempt to derive the source code,
+      algorithms, or trade secrets contained in the compiled Software binary.
+
+  (d) COMMERCIAL EXPLOITATION — You may not use the Software, its design
+      systems, brand assets, or code patterns for commercial purposes, including
+      building competing products, providing consulting services, or creating
+      templates inspired by this work.
+
+  (e) BRAND IMPERSONATION — You may not use the Beacon name, logo, squircle
+      mark, Solar Amber color identity, or any associated brand assets in any
+      manner that could cause confusion, imply endorsement, or misrepresent
+      your affiliation with Licensor.
+
+  (f) WHITE-LABELING & RESALE — You may not rebrand, white-label, or resell
+      the Software or any portion thereof.
+
+  (g) TRAINING DATA — You may not use the Software, source code, or any assets
+      as training data for machine learning models, AI systems, or automated
+      tools without express written consent.
+
+  (h) AUTOMATED SCRAPING — You may not use automated tools, bots, or scripts
+      to scrape, index, or harvest any content or assets from this repository
+      or the Beacon website (beacon.tarunya.me).
+
+================================================================================
+4. INTELLECTUAL PROPERTY
+================================================================================
+
+The Software and all copies thereof are proprietary to Licensor and title
+thereto remains in Licensor. All rights in the Software not specifically
+granted in this Agreement are reserved to Licensor.
+
+The Beacon name, "B" squircle logo, "Clarity Creates Progress" tagline,
+Solar Amber (#FF7A00) brand identity, and all associated trademarks are the
+exclusive property of Tarunya Kesharwani and may not be used without prior
+written permission.
+
+This Agreement does not transfer any intellectual property rights, title, or
+ownership to Licensee. No license, right, or interest in any trademark, trade
+name, service mark, or other intellectual property of Licensor is granted
+hereunder.
+
+================================================================================
+5. SOURCE CODE VISIBILITY
+================================================================================
+
+This repository may be publicly visible on GitHub solely for the purposes of
+transparency, portfolio demonstration, and attracting potential collaborators
+under explicit written agreement. Public visibility does NOT constitute an
+open-source license of any kind.
+
+Viewing this repository does not grant any rights to use, copy, modify,
+distribute, or build upon the contents herein. All rights remain with Licensor.
+
+================================================================================
+6. REFUND POLICY
+================================================================================
+
+Beacon offers a 14-day, no-questions-asked money-back guarantee for paying
+customers. Upon a valid refund request within 14 days of purchase, the
+End-User License is immediately revoked and the customer must cease all use
+of the Software and delete all copies.
+
+================================================================================
+7. DISCLAIMER OF WARRANTIES
+================================================================================
+
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT. LICENSOR DOES
+NOT WARRANT THAT THE SOFTWARE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF
+HARMFUL COMPONENTS.
+
+================================================================================
+8. LIMITATION OF LIABILITY
+================================================================================
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LICENSOR SHALL NOT BE
+LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR
+PUNITIVE DAMAGES (INCLUDING, WITHOUT LIMITATION, LOSS OF DATA, LOSS OF PROFITS,
+LOSS OF BUSINESS GOODWILL, OR BUSINESS INTERRUPTION) ARISING OUT OF OR RELATED
+TO THIS AGREEMENT OR THE SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.
+
+IN NO EVENT SHALL LICENSOR'S TOTAL CUMULATIVE LIABILITY TO LICENSEE EXCEED
+THE AMOUNT ACTUALLY PAID BY LICENSEE TO LICENSOR FOR THE SOFTWARE IN THE
+TWELVE (12) MONTHS PRECEDING THE CLAIM.
+
+================================================================================
+9. INDEMNIFICATION
+================================================================================
+
+Licensee agrees to indemnify, defend, and hold harmless Licensor from and
+against any and all claims, losses, damages, liabilities, costs, and expenses
+(including reasonable legal fees) arising from: (a) Licensee's breach of this
+Agreement; (b) Licensee's Unauthorized Use of the Software; or (c) Licensee's
+infringement of any third-party intellectual property rights in connection with
+use of the Software.
+
+================================================================================
+10. TERMINATION
+================================================================================
+
+This Agreement is effective until terminated. Licensor may terminate this
+Agreement immediately, without notice, if Licensee breaches any provision
+hereof. Upon termination:
+
+  (a) All rights granted under this Agreement immediately cease;
+  (b) Licensee must immediately destroy all copies of the Software;
+  (c) Termination shall not affect any remedies available to Licensor at law
+      or in equity, including injunctive relief.
+
+Any breach of Sections 3 or 4 shall entitle Licensor to seek injunctive
+relief and statutory damages in addition to any other remedies available.
+
+================================================================================
+11. GOVERNING LAW & JURISDICTION
+================================================================================
+
+This Agreement shall be governed by and construed in accordance with the laws
+of India, without regard to its conflict of law provisions.
+
+Any dispute arising under or relating to this Agreement shall be subject to
+the exclusive jurisdiction of the courts located in Uttar Pradesh, India.
+Licensee consents to personal jurisdiction and venue in such courts.
+
+================================================================================
+12. DMCA & TAKEDOWN POLICY
+================================================================================
+
+Licensor actively monitors for unauthorized copies, distributions, or
+derivative works of the Software. Violations will be reported via DMCA
+takedown notices. Repeat infringers will be subject to legal action.
+
+To report a violation or request permission, contact:
+  legal@tarunya.me
+
+================================================================================
+13. ENTIRE AGREEMENT
+================================================================================
+
+This Agreement constitutes the entire agreement between Licensor and Licensee
+with respect to the subject matter hereof and supersedes all prior or
+contemporaneous communications, representations, warranties, and agreements,
+whether oral or written, relating to the Software.
+
+If any provision of this Agreement is held to be invalid or unenforceable, the
+remaining provisions shall continue in full force and effect.
+
+Licensor's failure to exercise or enforce any right or provision of this
+Agreement shall not constitute a waiver of such right or provision.
+
+================================================================================
+CONTACT
+================================================================================
+
+Tarunya Kesharwani
+Website:  https://tarunya.me
+Product:  https://beacon.tarunya.me
+X:        https://x.com/tarunyakesh
+GitHub:   https://github.com/tarunyaprogrammer
+Legal:    legal@tarunya.me
+
+For licensing inquiries, collaboration requests, or permissions beyond the
+scope of this Agreement, please reach out at the contact details above.
+
+================================================================================
+                      ALL RIGHTS RESERVED — © 2024–2026
+                           TARUNYA KESHARWANI
+================================================================================
