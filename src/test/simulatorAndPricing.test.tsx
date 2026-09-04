@@ -40,6 +40,31 @@ describe("IslandSimulator Component", () => {
     // Increment check
     expect(screen.getByText(/71 \/ 100 problems/i)).toBeInTheDocument();
   });
+
+  it("automatically unpins the notch on first hover so it collapses on mouse leave", () => {
+    render(<IslandSimulator />);
+
+    // Starts pinned and expanded
+    const pinBtn = screen.getByRole("button", { name: /unpin dynamic island notch/i });
+    expect(pinBtn).toBeInTheDocument();
+    expect(screen.getByText(/Launch SaaS App/i)).toBeInTheDocument();
+
+    const notchContainer = pinBtn.closest("div[style*='position: relative']")?.firstElementChild as HTMLElement;
+    expect(notchContainer).not.toBeNull();
+
+    // Hover into the notch for the first time
+    fireEvent.mouseEnter(notchContainer);
+
+    // Mouse leaves: it should collapse because first hover auto-unpinned it
+    fireEvent.mouseLeave(notchContainer);
+
+    // Compact pill is now displayed with "Hover to expand"
+    expect(screen.getByText("Hover to expand")).toBeInTheDocument();
+
+    // Hovering again expands it
+    fireEvent.mouseEnter(notchContainer);
+    expect(screen.getByText(/Launch SaaS App/i)).toBeInTheDocument();
+  });
 });
 
 describe("PricingSection Component", () => {

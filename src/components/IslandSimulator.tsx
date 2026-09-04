@@ -21,6 +21,7 @@ type SurfaceView = "island" | "menubar" | "command";
 export const IslandSimulator: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPinned, setIsPinned] = useState(true);
+  const [hasAutoUnpinned, setHasAutoUnpinned] = useState(false);
   const [surfaceMode, setSurfaceMode] = useState<SurfaceView>("island");
   const [activeTab, setActiveTab] = useState<NotchTab>("beacon");
 
@@ -58,6 +59,20 @@ export const IslandSimulator: React.FC = () => {
     setGoalProgress(100);
     setCompletedFlash(true);
     setTimeout(() => setCompletedFlash(false), 1200);
+  };
+
+  const handleNotchMouseEnter = () => {
+    setIsHovered(true);
+    // Auto-unpin on first hover so when the user moves their cursor away,
+    // the notch smoothly collapses, demonstrating that it's a live simulation and not a photo.
+    if (isPinned && !hasAutoUnpinned) {
+      setIsPinned(false);
+      setHasAutoUnpinned(true);
+    }
+  };
+
+  const handleNotchMouseLeave = () => {
+    setIsHovered(false);
   };
 
   const overallPercent = Math.min(100, goalProgress);
@@ -256,9 +271,13 @@ export const IslandSimulator: React.FC = () => {
             {surfaceMode === "island" && (
               <div style={{ display: "flex", justifyContent: "center", width: "100%", position: "relative", zIndex: 40 }}>
                 <div
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  onClick={() => setIsPinned(!isPinned)}
+                  onMouseEnter={handleNotchMouseEnter}
+                  onMouseLeave={handleNotchMouseLeave}
+                  onClick={() => {
+                    if (!isExpanded) {
+                      setIsPinned(true);
+                    }
+                  }}
                   style={{
                     width: isExpanded ? "660px" : "200px",
                     height: isExpanded ? "146px" : "32px",
@@ -280,6 +299,7 @@ export const IslandSimulator: React.FC = () => {
                   {!isExpanded ? (
                     <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                       <span style={{ fontSize: "11px", fontWeight: 700, color: "#ffffff" }}>Beacon</span>
+                      <span style={{ fontSize: "10px", color: "rgba(255, 255, 255, 0.45)", fontWeight: 500 }}>Hover to expand</span>
                       <span style={{ fontSize: "11px", fontWeight: 800, color: "var(--accent-solar)" }}>{overallPercent}%</span>
                     </div>
                   ) : (
@@ -336,9 +356,32 @@ export const IslandSimulator: React.FC = () => {
                             Media
                           </button>
                         </div>
-                        <span style={{ fontSize: "10px", color: "rgba(255, 255, 255, 0.4)" }}>
-                          <span style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>{isPinned ? <><Pin size={10} /> Pinned</> : "Hover to expand"}</span>
-                        </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsPinned(!isPinned);
+                          }}
+                          aria-label={isPinned ? "Unpin Dynamic Island notch" : "Pin Dynamic Island notch open"}
+                          title={isPinned ? "Currently pinned open · Click to unpin" : "Click to pin open"}
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "4px",
+                            padding: "3px 9px",
+                            borderRadius: "6px",
+                            fontSize: "10px",
+                            fontWeight: 600,
+                            border: isPinned ? "1px solid rgba(255, 122, 0, 0.45)" : "1px solid rgba(255, 255, 255, 0.16)",
+                            backgroundColor: isPinned ? "rgba(255, 122, 0, 0.16)" : "rgba(255, 255, 255, 0.06)",
+                            color: isPinned ? "var(--accent-solar)" : "rgba(255, 255, 255, 0.75)",
+                            cursor: "pointer",
+                            transition: "all 0.15s ease",
+                          }}
+                        >
+                          <Pin size={10} style={{ transform: isPinned ? "rotate(0deg)" : "rotate(45deg)", transition: "transform 0.15s ease" }} />
+                          <span>{isPinned ? "Pinned" : "Pin Open"}</span>
+                        </button>
                       </div>
 
                       {/* 3 Columns */}
