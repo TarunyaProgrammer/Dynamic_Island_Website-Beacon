@@ -101,7 +101,7 @@ export const SoftwareOwnership: React.FC = () => {
               </div>
 
               <div style={{ fontSize: "28px", fontWeight: 800, color: "var(--text-ink)", marginBottom: "8px", fontFamily: "var(--font-serif)" }}>
-                $29 once. Forever.
+                $18 once. Forever.
               </div>
               <p style={{ fontSize: "13px", color: "var(--text-muted)", marginBottom: "24px" }}>
                 One payment for lifetime personal usage on every Mac you own.
@@ -123,7 +123,7 @@ export const SoftwareOwnership: React.FC = () => {
             </div>
 
             <div style={{ marginTop: "32px", padding: "12px 16px", borderRadius: "10px", backgroundColor: "rgba(217, 119, 6, 0.08)", fontSize: "12px", color: "var(--text-amber-contrast)", fontWeight: 700 }}>
-              Calculated savings: Over $871+ saved over 5 years compared to recurring trackers.
+              Calculated savings: Over $882+ saved over 5 years compared to recurring trackers.
             </div>
           </div>
         </div>

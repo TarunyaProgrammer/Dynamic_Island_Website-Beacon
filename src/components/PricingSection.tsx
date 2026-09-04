@@ -3,14 +3,13 @@ import { Check, Shield, ArrowRight, ShieldCheck, Key, Laptop, Apple, ArrowUpRigh
 
 interface PricingSectionProps {
   onSelectPlan: () => void;
-  currency: "INR" | "USD";
+  currency?: "INR" | "USD";
 }
 
-export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan, currency }) => {
-  const isINR = currency === "INR";
-  const priceDisplay = isINR ? "₹2,499" : "$29";
-  const regularPriceDisplay = isINR ? "₹4,199" : "$49";
-  const savingsDisplay = isINR ? "Save ₹1,700" : "Save $20 (40% OFF)";
+export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) => {
+  const priceDisplay = "$18";
+  const regularPriceDisplay = "$39";
+  const savingsDisplay = "Save $21 (54% OFF)";
 
   // Persistent 24-Hour Pioneer Launch Countdown
   const [timeLeft, setTimeLeft] = useState({ hours: 18, minutes: 42, seconds: 15 });

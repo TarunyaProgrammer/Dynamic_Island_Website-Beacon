@@ -12,7 +12,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onDownloadTrial,
   currency,
 }) => {
-  const priceDisplay = currency === "INR" ? "₹2,499" : "$29";
+  const priceDisplay = "$18";
 
 
 

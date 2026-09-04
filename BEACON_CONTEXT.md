@@ -20,7 +20,7 @@
 4. **Privacy Invasions**: Personal daily ambitions, habits, and private notes are routinely uploaded to third-party cloud servers.
 
 ### The Beacon Counter-Philosophy
-- **Software You Own, Not Software You Rent**: A single, permanent $29 lifetime license covering all personal Macs. No recurring credit card fees.
+- **Software You Own, Not Software You Rent**: A single, permanent $18 lifetime license covering all personal Macs. No recurring credit card fees.
 - **Hardware-Native Efficiency**: 0.1% idle CPU, zero battery impact on Apple Silicon, <16ms 60fps spring transitions.
 - **100% Local & Air-Gapped**: All habits, notes, and metrics persist in a local SQLite database in Write-Ahead Logging (WAL) mode. Zero cloud telemetry.
 - **The 30-Day Pioneer Guarantee**: 30-day unconditional refund policy.
@@ -44,14 +44,25 @@ Beacon discarded the generic, high-saturation "AI prototype dark mode" in favor 
 - **UI & Technical Body**: `Figtree` modern geometric sans-serif with generous 1.65 line-height for effortless readability.
 - **Tabular Data & Code**: `JetBrains Mono` for latency numbers, currency figures, and shortcut chords (`⌘⇧B`).
 
-### The Master Brand Logo (Borderless 3D Crystal Lantern)
-- **Geometry**: A 3D faceted crystal prism lantern with an internal glowing solar amber core, resting on an obsidian pedestal.
-- **Transparency**: 100% transparent alpha channel with zero outer black boxes, metallic phone cases, or fuzzy halo borders.
+### The Master Brand Logo & Identity (Faceted Amber "B" Squircle)
+- **Geometry**: An origami-faceted capital "B" with an inner warm sunrise amber glow (`#F97316` / `#FF7A00`), nestled inside an Apple-grade deep charcoal squircle chassis (`#171717`) with transparent outer corners.
+- **Core Strapline**: *Clarity Creates Progress*
+- **Brand Narratives**:
+  - *"Focus today. A brighter tomorrow."*
+  - *"A calm guide for a more intentional you."*
+  - *"A beacon guides the way: Same direction, more progress, a brighter you."*
+- **Brand Identity Pillars**: Plan Better • Take Action • Stay Consistent • Achieve More
+- **Brand Identity Color System**:
+  - **Beacon Orange**: `#F97316` (Primary vibrant amber mark)
+  - **Charcoal**: `#171717` (Icon squircle chassis)
+  - **Warm Gray**: `#6B7280` (Supporting structural tone)
+  - **Soft Cream**: `#FAF7F2` (Editorial tone)
 - **Production Asset Matrix**:
   - `public/logo.png`: 512×512 Master high-resolution transparent icon
-  - `public/favicon.png`: 64×64 Crisp browser favicon
-  - `public/apple-touch-icon.png`: 180×180 iOS & Safari bookmark touch icon
-  - `public/favicon.ico`: 32×32 Legacy compatibility icon
+  - `public/favicon.png`: 64×64 High-DPI browser favicon
+  - `public/apple-touch-icon.png`: 180×180 iOS & Safari bookmark icon
+  - `public/favicon.ico`: 32×32 Multi-size legacy icon (16/32/48)
+  - `public/og-image.png`: 1200×630 Cinematic social graph share card with mountain sunrise lockup
 
 ---
 
@@ -129,7 +140,7 @@ Replaced flat software screenshots with photorealistic Space Black MacBook Pro L
 ## 6. Commerce, Security & Accessibility Architecture
 
 ### Razorpay Universal Checkout Integration (`RazorpayModal.tsx`)
-- Supports international USD ($29) and Indian INR (₹2,499) with live currency toggling and persistent local preferences.
+- Universal USD ($18) checkout with automated instant license generation and delivery.
 - Processes payments via Razorpay's 256-bit SSL encrypted gateway supporting UPI, Credit/Debit cards, NetBanking, and Apple Pay.
 - Built-in Sandbox simulator for instantaneous end-to-end testing.
 - **License Delivery (`LicenseSuccessModal.tsx`)**: Triggers real-time cryptographic license generation (`BCN-LIFE-XXXX-XXXX-XXXX`), confetti burst (`canvas-confetti`), 1-click clipboard copy, and immediate universal macOS DMG download link.

@@ -25,9 +25,12 @@ export const Footer: React.FC = () => {
         >
           {/* Brand Col */}
           <div style={{ maxWidth: "340px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
-              <img src="/logo.png" alt="Beacon" style={{ width: "30px", height: "30px", objectFit: "contain" }} />
-              <span style={{ fontSize: "16px", fontWeight: 800, color: "var(--text-ink)" }}>Beacon</span>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
+              <img src="/logo.png" alt="Beacon" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
+              <div>
+                <span style={{ fontSize: "16px", fontWeight: 800, color: "var(--text-ink)", display: "block", lineHeight: 1.1 }}>Beacon</span>
+                <span style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.12em", color: "var(--text-muted)", textTransform: "uppercase" }}>Clarity Creates Progress</span>
+              </div>
             </div>
             <p style={{ lineHeight: 1.6, color: "var(--text-body)", fontSize: "13px" }}>
               The zero-latency Dynamic Island for your Mac. Designed and engineered for human builders, writers, and craftspeople.
@@ -44,7 +47,7 @@ export const Footer: React.FC = () => {
                 <li><a href="#simulator" style={{ color: "var(--text-body)", textDecoration: "none" }}>Dynamic Island</a></li>
                 <li><a href="#gallery" style={{ color: "var(--text-body)", textDecoration: "none" }}>macOS Surfaces</a></li>
                 <li><a href="#features" style={{ color: "var(--text-body)", textDecoration: "none" }}>6 Paradigms</a></li>
-                <li><a href="#pricing" style={{ color: "var(--text-body)", textDecoration: "none" }}>Pioneer Lifetime ($29)</a></li>
+                <li><a href="#pricing" style={{ color: "var(--text-body)", textDecoration: "none" }}>Pioneer Lifetime ($18)</a></li>
               </ul>
             </div>
 

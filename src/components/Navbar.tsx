@@ -3,13 +3,12 @@ import { Apple } from "lucide-react";
 
 interface NavbarProps {
   currency: "INR" | "USD";
-  onToggleCurrency: () => void;
+  onToggleCurrency?: () => void;
   onOpenPricing: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   currency,
-  onToggleCurrency,
   onOpenPricing,
 }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const pricePill = currency === "INR" ? "₹2,499" : "$29";
+  const pricePill = "$18";
 
   return (
     <header
@@ -108,26 +107,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <a href="#pricing" style={{ color: "inherit", textDecoration: "none" }}>Pricing</a>
         </div>
 
-        {/* Currency Switcher & Obsidian Action Button */}
+        {/* Obsidian Action Button */}
         <div style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0 }}>
-          <button
-            type="button"
-            onClick={onToggleCurrency}
-            style={{
-              background: "none",
-              border: "1px solid var(--border-subtle)",
-              borderRadius: "var(--radius-pill)",
-              padding: "5px 10px",
-              fontSize: "11px",
-              fontWeight: 700,
-              color: "var(--text-body)",
-              cursor: "pointer",
-            }}
-            title="Toggle currency"
-          >
-            {currency === "INR" ? "₹" : "$"}
-          </button>
-
           <button
             type="button"
             onClick={onOpenPricing}

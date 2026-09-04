@@ -8,7 +8,7 @@ interface Props {
 
 export const StickyMobileCTA: React.FC<Props> = ({ onOpenPricing, currency }) => {
   const [show, setShow] = useState(false);
-  const price = currency === "INR" ? "₹2,499" : "$29";
+  const price = "$18";
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 600);

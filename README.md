@@ -10,7 +10,7 @@
   [![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-M1--M4%20Native-ff7a00)](https://apple.com)
   [![SQLite WAL](https://img.shields.io/badge/Data-SQLite%20WAL-003B57?logo=sqlite)](https://sqlite.org)
   [![Offline-First](https://img.shields.io/badge/Privacy-100%25%20Offline-10B981)](https://beacon.tarunya.me)
-  [![License: Paid](https://img.shields.io/badge/License-Pioneer%20%2429-ff7a00)](https://beacon.tarunya.me/#pricing)
+  [![License: Paid](https://img.shields.io/badge/License-Pioneer%20%2418-ff7a00)](https://beacon.tarunya.me/#pricing)
 
   [**Live Website →**](https://beacon.tarunya.me)&nbsp;&nbsp;•&nbsp;&nbsp;[**X (@tarunyakesh) →**](https://x.com/tarunyakesh)&nbsp;&nbsp;•&nbsp;&nbsp;[**GitHub →**](https://github.com/tarunyaprogrammer)
 
@@ -30,7 +30,7 @@ Beacon is the opposite:
 | **CPU idle** | 8–15% | 0.1% |
 | **Data storage** | Their servers | Your SSD (SQLite WAL) |
 | **Privacy** | Requires account + cloud sync | Zero network calls. Period. |
-| **Cost** | $180/year recurring | $29 once. Forever. |
+| **Cost** | $180/year recurring | $18 once. Forever. |
 
 ---
 

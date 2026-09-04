@@ -91,7 +91,7 @@ export const BeaconSpiritCinematic: React.FC = () => {
     {
       sectionId: "pricing",
       speech: "Wait... do I have to pay?",
-      subtext: "Wait, $29 once for life with no monthly subscription? Take my money.",
+      subtext: "Wait, $18 once for life with no monthly subscription? Take my money.",
       mood: "shocked",
     },
     {

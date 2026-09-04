@@ -8,6 +8,8 @@
 
 - **Name**: Beacon
 - **Tagline**: The Intentional Dynamic Island & Companion Workspace for macOS.
+- **Strapline**: Clarity Creates Progress.
+- **Brand Identity**: Faceted Amber "B" squircle (Beacon Orange `#F97316` on Charcoal `#171717`).
 - **Core Narrative**: Modern productivity software has devolved into 400MB browser-based subscriptions that constantly fight for your attention. Beacon rejects this. It lives inside the physical hardware notch of your Mac, uses 0.1% CPU, stores all data in a local SQLite database, and turns idle hardware into an active focus companion.
 - **The Core Enemy**: Context-switching fatigue, bloated electron memory hogs, and rent-seeking recurring subscriptions.
 - **The Core Hero**: The user who wants uninterrupted deep work and compounding daily momentum.
@@ -46,7 +48,7 @@
 
 ## 4. Conversion & Pricing Strategy
 
-- **Hero Offer**: **Pioneer Lifetime License — $29 USD / ₹2,499 INR** (One-time payment).
+- **Hero Offer**: **Pioneer Lifetime License — $18 USD** (One-time payment).
 - **Positioning**: "Own Beacon forever. Zero subscriptions, zero renewal anxiety."
 - **Guarantee**: "14-Day No-Questions-Asked Money-Back Guarantee."
 - **Gateway**: Instant Razorpay Checkout (UPI, Cards, NetBanking, Apple Pay) with automated license key delivery on screen and via email.

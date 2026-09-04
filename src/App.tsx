@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { IslandSimulator } from "./components/IslandSimulator";
@@ -13,29 +13,24 @@ import { FounderLetter } from "./components/FounderLetter";
 import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { BeaconSpiritCinematic } from "./components/BeaconSpiritCinematic";
-import { SocialProofToast } from "./components/SocialProofToast";
 import { StickyMobileCTA } from "./components/StickyMobileCTA";
 import { RazorpayModal } from "./components/RazorpayModal";
 import { LicenseSuccessModal } from "./components/LicenseSuccessModal";
 import { PricingPlan, LicenseReceipt } from "./types";
 
 export const App: React.FC = () => {
-  const [currency, setCurrency] = useState<"INR" | "USD">(() => {
+  const [currency] = useState<"INR" | "USD">("USD");
+
+  useEffect(() => {
+    // Purge any stale legacy INR key from previous sessions and enforce USD
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("beacon_currency") as "INR" | "USD") || "USD";
+      localStorage.setItem("beacon_currency", "USD");
     }
-    return "USD";
-  });
+  }, []);
 
   const [selectedPlan, setSelectedPlan] = useState<PricingPlan | null>(null);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [successReceipt, setSuccessReceipt] = useState<LicenseReceipt | null>(null);
-
-  const toggleCurrency = () => {
-    const next = currency === "INR" ? "USD" : "INR";
-    setCurrency(next);
-    localStorage.setItem("beacon_currency", next);
-  };
 
   const handleOpenPricing = () => {
     const pricingEl = document.getElementById("pricing");
@@ -51,7 +46,7 @@ export const App: React.FC = () => {
       tagline: "One-time purchase for lifetime personal access",
       billingPeriod: "one-time",
       ctaLabel: "Get Pioneer License",
-      priceUSD: 29,
+      priceUSD: 18,
       priceINR: 2499,
       features: [
         "Lifetime personal license",
@@ -85,7 +80,6 @@ export const App: React.FC = () => {
       {/* Navigation */}
       <Navbar
         currency={currency}
-        onToggleCurrency={toggleCurrency}
         onOpenPricing={handleOpenPricing}
       />
 
@@ -143,9 +137,6 @@ export const App: React.FC = () => {
         onClose={() => setIsCheckoutOpen(false)}
         onPaymentSuccess={handlePaymentSuccess}
       />
-
-      {/* Conversion: Floating Social Proof Toast */}
-      <SocialProofToast />
 
       {/* Conversion: Sticky Mobile Bottom CTA */}
       <StickyMobileCTA onOpenPricing={handleOpenPricing} currency={currency} />

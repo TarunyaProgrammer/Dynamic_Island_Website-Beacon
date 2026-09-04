@@ -11,9 +11,32 @@ html {
   font-family: var(--font-sans);
   background-color: var(--bg-canvas);
   color: var(--text-ink);
+  color-scheme: light;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 17, 23, 0.12) var(--bg-canvas);
+}
+
+/* Seamlessly blended scrollbar (matches canvas background) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 17, 23, 0.12);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 17, 23, 0.22);
 }
 
 body {
@@ -271,16 +294,6 @@ body {
    CONVERSION ANIMATIONS & PSYCHOLOGICAL TRIGGERS
    ========================================================================== */
 
-/* Social Proof Toast Animations */
-@keyframes toastSlideIn {
-  from { opacity: 0; transform: translateX(-100%) scale(0.8); }
-  to { opacity: 1; transform: translateX(0) scale(1); }
-}
-@keyframes toastSlideOut {
-  from { opacity: 1; transform: translateX(0) scale(1); }
-  to { opacity: 0; transform: translateX(-100%) scale(0.8); }
-}
-
 /* Sticky Mobile CTA Slide Up */
 @keyframes stickySlideUp {
   from { opacity: 0; transform: translateY(100%); }
@@ -329,11 +342,4 @@ section { animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
   .sticky-mobile-cta { display: block !important; }
   /* Add bottom padding to body so footer isn't hidden behind sticky CTA */
   body { padding-bottom: 88px; }
-  /* Toast on mobile: bottom-right, above sticky CTA */
-  [role="status"] {
-    bottom: 100px !important;
-    left: 12px !important;
-    right: 12px !important;
-    max-width: none !important;
-  }
 }
