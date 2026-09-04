@@ -62,7 +62,7 @@ export const AppScreenshotsGallery: React.FC = () => {
       title: "Private Offline Gemini Intelligence",
       description: "Ask for goal adjustments, psychological re-framing, or sprint encouragement. 100% private to your Mac.",
       icon: Sparkles,
-      image: "/assets/spirit-companion-clean.png",
+      image: "/assets/macbook-spirit-mockup.jpg",
       highlights: ["On-Device Gemini AI", "Psychological Coaching", "Context Aware"],
     },
   ];

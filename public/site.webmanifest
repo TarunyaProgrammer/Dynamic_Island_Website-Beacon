@@ -1,0 +1,26 @@
+{
+  "name": "Beacon — Dynamic Island & AI Companion for macOS",
+  "short_name": "Beacon",
+  "description": "The Intentional Dynamic Island & Companion Workspace for macOS.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8EE",
+  "theme_color": "#07080B",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
