@@ -392,3 +392,84 @@ section { animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
   /* Add bottom padding to body so footer isn't hidden behind sticky CTA */
   body { padding-bottom: 88px; }
 }
+
+/* ==========================================================================
+   EDITORIAL HIGH-END FOOTER RESPONSIVE ARCHITECTURE
+   ========================================================================== */
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-dispatch-col {
+  padding: clamp(28px, 4vw, 48px);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footer-links-grid {
+  padding: clamp(28px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 2.5vw, 36px);
+}
+
+.footer-sub-bar {
+  padding: 20px clamp(16px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-subtle);
+}
+
+@media (max-width: 1024px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-dispatch-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    max-width: 100%;
+  }
+  .footer-links-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 20px;
+    padding: 28px 20px;
+  }
+  .footer-dispatch-col {
+    padding: 28px 20px;
+  }
+  .footer-sub-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-wordmark {
+    font-size: clamp(52px, 19vw, 92px) !important;
+    letter-spacing: -0.05em !important;
+  }
+  .footer-links-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+}
