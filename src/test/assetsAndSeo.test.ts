@@ -62,6 +62,7 @@ describe("Asset & SEO Integrity Guard", () => {
       "favicon.ico",
       "apple-touch-icon.png",
       "og-image.png",
+      "og-image-square.png",
       "site.webmanifest",
       "robots.txt",
       "sitemap.xml",
@@ -77,6 +78,12 @@ describe("Asset & SEO Integrity Guard", () => {
       expect(fs.existsSync(p), `Missing required asset: ${asset}`).toBe(true);
       expect(fs.statSync(p).size, `Asset ${asset} is empty`).toBeGreaterThan(0);
     }
+
+    // Specific WhatsApp constraint: og-image-square and og-image should be under 300KB
+    const ogImg = path.join(PUBLIC_DIR, "og-image.png");
+    const ogSquareImg = path.join(PUBLIC_DIR, "og-image-square.png");
+    expect(fs.statSync(ogImg).size, "og-image.png must be under 300KB for WhatsApp").toBeLessThan(300 * 1024);
+    expect(fs.statSync(ogSquareImg).size, "og-image-square.png must be under 300KB for WhatsApp").toBeLessThan(300 * 1024);
   });
 
   it("site.webmanifest is valid JSON with valid icons", () => {
@@ -109,19 +116,33 @@ describe("Asset & SEO Integrity Guard", () => {
     expect(robotsContent).toContain("https://beacon.tarunya.me/sitemap.xml");
   });
 
-  it("index.html contains valid SEO metadata and valid Schema.org JSON-LD", () => {
+  it("index.html contains valid SEO metadata, OpenGraph tags, and Schema.org JSON-LD", () => {
     const htmlPath = path.join(ROOT_DIR, "index.html");
     const html = fs.readFileSync(htmlPath, "utf-8");
 
-    // Title and description
+    // Title, canonical URL and description
     expect(html).toMatch(/<title>Beacon.*<\/title>/);
     expect(html).toContain('content="https://beacon.tarunya.me/"');
     expect(html).toContain('href="https://beacon.tarunya.me/"');
 
-    // OpenGraph & Twitter
+    // OpenGraph namespace and core tags
+    expect(html).toContain('prefix="og: https://ogp.me/ns#"');
     expect(html).toContain('property="og:image" content="https://beacon.tarunya.me/og-image.png"');
+    expect(html).toContain('property="og:image:secure_url" content="https://beacon.tarunya.me/og-image.png"');
+    expect(html).toContain('property="og:image:width" content="1200"');
+    expect(html).toContain('property="og:image:height" content="630"');
+    expect(html).toContain('property="og:locale" content="en_US"');
+
+    // WhatsApp / iMessage fallback tags
+    expect(html).toContain('rel="image_src" href="https://beacon.tarunya.me/og-image.png"');
+    expect(html).toContain('property="og:image" content="https://beacon.tarunya.me/og-image-square.png"');
+
+    // Twitter / X card tags
     expect(html).toContain('name="twitter:card" content="summary_large_image"');
     expect(html).toContain('name="twitter:site" content="@tarunyakesh"');
+    expect(html).toContain('name="twitter:creator" content="@tarunyakesh"');
+    expect(html).toContain('name="twitter:image" content="https://beacon.tarunya.me/og-image.png"');
+    expect(html).toContain('name="twitter:image:alt"');
 
     // Parse JSON-LD script blocks
     const jsonLdRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
