@@ -100,7 +100,8 @@ This repository contains the **marketing + checkout website** deployed at [beaco
 | Language | TypeScript (strict) |
 | Styling | Vanilla CSS with design tokens |
 | Typography | EB Garamond (serif) + Figtree (sans) + JetBrains Mono |
-| Payments | Razorpay Standard Checkout |
+| Payments | Lemon Squeezy Overlay Checkout (Merchant of Record) |
+| Backend | Supabase Edge Functions (Deno / TypeScript) |
 | Hosting | Vercel / Cloudflare Pages |
 
 ### Local Development
@@ -108,21 +109,52 @@ This repository contains the **marketing + checkout website** deployed at [beaco
 ```bash
 npm install
 npm run dev        # → http://localhost:3000
-npm run build      # Production bundle (<250ms)
+npm run build      # Production bundle (<800ms)
 npm run preview    # Preview production build
 ```
 
-### Configuring Live Payments
+---
 
-Edit `src/services/razorpay.ts`:
+## Lemon Squeezy Store & Product Setup
+
+### 1. Store & Account Details
+- **Business Name**: `Tarunya Kesharwani` (or `Tarunya Labs`). Plain personal/indie founder names are ideal and fast-tracked for approval.
+- **Store Website**: `https://beacon.tarunya.me` — Subdomains are **100% accepted and supported** by Lemon Squeezy.
+- **Product Name**: `Beacon Pioneer Lifetime License`
+- **Price**: `$18 USD` (One-time payment)
+- **License Keys**: Enable **Generate License Keys** in Product Settings (format: Single-use activation with 3 devices limit).
+
+### 2. Website Checkout Configuration
+
+Edit [`src/config/lemonsqueezy.ts`](file:///Users/tarunyakesh/Desktop/Beacon%20-%20WebBranding/src/config/lemonsqueezy.ts):
 
 ```ts
-export const RAZORPAY_CONFIG = {
-  keyId: "rzp_live_YOUR_KEY_HERE",  // Replace with live Razorpay Key ID
+export const LS_CONFIG = {
+  storeSlug: "tarunya", // Your Lemon Squeezy store slug
+  checkoutUrl: "https://tarunya.lemonsqueezy.com/checkout/buy/YOUR_VARIANT_ID",
+  productId: 123456,
+  webhookSecret: "your_webhook_signing_secret",
 };
 ```
 
-> **Security note**: The `keyId` is a *publishable* client-side key (like Stripe's `pk_`). Your Razorpay *Secret Key* must **never** appear in client code.
+### 3. Discount Codes & Coupons
+Lemon Squeezy has built-in coupon support:
+1. Go to **LS Dashboard** → **Discounts** → **Add Discount**.
+2. Set your coupon code (e.g., `FRIEND20` for 20% off, or `LAUNCH5` for $5 off).
+3. Specify valid products and maximum redemption count if desired.
+4. On the Beacon website, users can enter their code in the checkout modal. The website appends `?discount=CODE` to the checkout URL, and the Lemon Squeezy overlay automatically applies the discount.
+
+---
+
+## App Distribution & Anti-Piracy Licensing Strategy
+
+If you distribute a raw macOS `.dmg` without licensing, anyone who downloads it can share it with others. Beacon solves this without annoying online-only DRM:
+
+1. **Purchased on Web**: Buyer pays $18 via Lemon Squeezy. Lemon Squeezy generates a unique cryptographic license key (`BCN-XXXX-XXXX-XXXX`) and emails it to the buyer with the DMG download link.
+2. **First App Launch**: When the user opens Beacon on their Mac, a clean activation modal asks for their License Key.
+3. **Hardware Binding**: The app sends `licenseKey` + Mac hardware UUID to your Supabase function (`/ls-validate`). The backend checks that the key exists, is active, and locks it to that machine (permitting up to 3 personal Macs per license).
+4. **Offline Capability**: Once verified, the app writes an encrypted validation token to the macOS Keychain. The user never needs an internet connection again to use Beacon daily.
+5. **Detailed Backend Implementation**: See [`backend/README.md`](file:///Users/tarunyakesh/Desktop/Beacon%20-%20WebBranding/backend/README.md) for full Supabase Edge Function code and deployment commands.
 
 ### SEO Configuration
 

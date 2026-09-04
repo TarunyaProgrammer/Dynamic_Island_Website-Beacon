@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { IslandSimulator } from "./components/IslandSimulator";
@@ -14,23 +14,10 @@ import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { BeaconSpiritCinematic } from "./components/BeaconSpiritCinematic";
 import { StickyMobileCTA } from "./components/StickyMobileCTA";
-import { RazorpayModal } from "./components/RazorpayModal";
-import { LicenseSuccessModal } from "./components/LicenseSuccessModal";
-import { PricingPlan, LicenseReceipt } from "./types";
+import { CheckoutModal } from "./components/CheckoutModal";
 
 export const App: React.FC = () => {
-  const [currency] = useState<"INR" | "USD">("USD");
-
-  useEffect(() => {
-    // Purge any stale legacy INR key from previous sessions and enforce USD
-    if (typeof window !== "undefined") {
-      localStorage.setItem("beacon_currency", "USD");
-    }
-  }, []);
-
-  const [selectedPlan, setSelectedPlan] = useState<PricingPlan | null>(null);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [successReceipt, setSuccessReceipt] = useState<LicenseReceipt | null>(null);
 
   const handleOpenPricing = () => {
     const pricingEl = document.getElementById("pricing");
@@ -39,58 +26,26 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleSelectPlan = () => {
-    const plan: PricingPlan = {
-      id: "lifetime",
-      name: "Pioneer Lifetime License",
-      tagline: "One-time purchase for lifetime personal access",
-      billingPeriod: "one-time",
-      ctaLabel: "Get Pioneer License",
-      priceUSD: 18,
-      priceINR: 2499,
-      features: [
-        "Lifetime personal license",
-        "All 5 native macOS surfaces",
-        "All 6 goal paradigms",
-        "100% offline SQLite WAL",
-        "Free version 1.x updates",
-        "30-day money-back guarantee"
-      ]
-    };
-    setSelectedPlan(plan);
+  const handleOpenCheckout = () => {
     setIsCheckoutOpen(true);
-  };
-
-  const handleDownloadDMG = () => {
-    const a = document.createElement("a");
-    a.href = "#";
-    a.download = "Beacon-1.0.0-mac-universal.dmg";
-    document.body.appendChild(a);
-    alert("Beacon 1.0 Universal DMG download initiated! (Apple Silicon M1/M2/M3/M4 & Intel)");
-    document.body.removeChild(a);
-  };
-
-  const handlePaymentSuccess = (receipt: LicenseReceipt) => {
-    setIsCheckoutOpen(false);
-    setSuccessReceipt(receipt);
   };
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "var(--bg-canvas)", color: "var(--text-ink)", position: "relative" }}>
       {/* Navigation */}
       <Navbar
-        currency={currency}
-        onOpenPricing={handleOpenPricing}
+        currency="USD"
+        onOpenPricing={handleOpenCheckout}
       />
 
       {/* Hero */}
       <HeroSection
-        onOpenPricing={handleOpenPricing}
-        onDownloadTrial={handleDownloadDMG}
-        currency={currency}
+        onOpenPricing={handleOpenCheckout}
+        onDownloadTrial={handleOpenCheckout}
+        currency="USD"
       />
 
-      {/* Interactive Dynamic Island Hardware Simulator (with dark theater enclosure) */}
+      {/* Interactive Dynamic Island Hardware Simulator */}
       <IslandSimulator />
 
       {/* Real macOS Screenshots on Photorealistic MacBook Retina Displays */}
@@ -111,10 +66,10 @@ export const App: React.FC = () => {
       {/* Software Ownership Manifesto (Rental vs. Ownership) */}
       <SoftwareOwnership />
 
-      {/* Pricing & Razorpay Trigger */}
+      {/* Pricing & Checkout Trigger */}
       <PricingSection
-        currency={currency}
-        onSelectPlan={handleSelectPlan}
+        currency="USD"
+        onSelectPlan={handleOpenCheckout}
       />
 
       {/* Founder's Personal Letter & Craft Manifesto */}
@@ -129,24 +84,14 @@ export const App: React.FC = () => {
       {/* Floating Scroll-Reactive Spirit Mascot Companion */}
       <BeaconSpiritCinematic />
 
-      {/* Razorpay Checkout Modal */}
-      <RazorpayModal
+      {/* Lemon Squeezy Checkout Modal */}
+      <CheckoutModal
         isOpen={isCheckoutOpen}
-        plan={selectedPlan}
-        currency={currency}
         onClose={() => setIsCheckoutOpen(false)}
-        onPaymentSuccess={handlePaymentSuccess}
       />
 
       {/* Conversion: Sticky Mobile Bottom CTA */}
-      <StickyMobileCTA onOpenPricing={handleOpenPricing} currency={currency} />
-
-      {/* License Success & Confetti Delivery Modal */}
-      <LicenseSuccessModal
-        receipt={successReceipt}
-        onClose={() => setSuccessReceipt(null)}
-        onDownloadDMG={handleDownloadDMG}
-      />
+      <StickyMobileCTA onOpenPricing={handleOpenCheckout} currency="USD" />
     </div>
   );
 };

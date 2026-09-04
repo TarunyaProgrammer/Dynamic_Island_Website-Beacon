@@ -14,8 +14,8 @@ export const FAQSection: React.FC = () => {
       a: "Beacon features automatic screen geometry detection. If your Mac doesn't have a physical camera notch, Beacon renders a floating Dynamic Island capsule pinned at the top center of your display with full hover and click interactions.",
     },
     {
-      q: "How does the Razorpay checkout and license delivery work?",
-      a: "Payment is processed through Razorpay's 256-bit encrypted gateway supporting UPI, Indian & international Credit/Debit cards, NetBanking, and Apple Pay. The moment payment is verified, your unique license key is generated on screen and emailed to your inbox.",
+      q: "How does the checkout and instant license delivery work?",
+      a: "Payment is processed through Lemon Squeezy's encrypted checkout supporting Apple Pay, Google Pay, and international Credit/Debit cards with automatic local currency conversion. The moment payment completes, your unique license key is displayed on screen and emailed to your inbox.",
     },
     {
       q: "Is my personal data and habit schedule kept private?",
