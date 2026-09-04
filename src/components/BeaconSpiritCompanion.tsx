@@ -47,17 +47,17 @@ export const BeaconSpiritCompanion: React.FC = () => {
     if (customMessage) return customMessage;
     switch (currentSection) {
       case "hero":
-        return "Hey! I live in your MacBook notch. Touch the notch below to test me out! 🍎";
+        return "Hey! I live in your MacBook notch. Touch the notch below to test me out.";
       case "simulator":
-        return "Try clicking [+10] or hover the notch to test live progress sync! ⚡";
+        return "Try clicking [+10] or hover the notch to test live progress sync.";
       case "gallery":
         return "5 native macOS surfaces, 0.1% CPU, and zero web wrappers. Pure hardware craft.";
       case "features":
-        return "Checkboxes are boring. We built 6 psychological models for real ambitious humans. 🔥";
+        return "Checkboxes are boring. We built 6 psychological models for real ambitious humans.";
       case "manifesto":
-        return "Software you own forever! Down with $15/mo subscriptions. 💎";
+        return "Software you own forever. Down with $15/mo subscriptions.";
       case "pricing":
-        return "30-day unconditional refund guarantee. Try Beacon completely risk-free! 🤝";
+        return "14-day unconditional refund guarantee. Try Beacon completely risk-free.";
       default:
         return "Ready to take control of your daily focus?";
     }
@@ -66,11 +66,11 @@ export const BeaconSpiritCompanion: React.FC = () => {
   const handleSpiritClick = () => {
     setIsHappy(true);
     const cheerings = [
-      "Let's crush today's deep work goals! 🚀",
-      "Focus is a muscle. You're building it right now! ✨",
-      "I'm keeping your notch warm and waiting for you! 🍎",
-      "Zero subscriptions forever. You own me! 💎",
-      "14 days and counting — keep that streak alive! 🔥"
+      "Let's crush today's deep work goals.",
+      "Focus is a muscle. You're building it right now.",
+      "I'm keeping your notch warm and waiting for you.",
+      "Zero subscriptions forever. You own me.",
+      "14 days and counting — keep that streak alive."
     ];
     const randomMsg = cheerings[Math.floor(Math.random() * cheerings.length)];
     setCustomMessage(randomMsg);

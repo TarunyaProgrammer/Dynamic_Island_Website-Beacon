@@ -15,9 +15,12 @@ import { Footer } from "./components/Footer";
 import { BeaconSpiritCinematic } from "./components/BeaconSpiritCinematic";
 import { StickyMobileCTA } from "./components/StickyMobileCTA";
 import { CheckoutModal } from "./components/CheckoutModal";
+import { FeedbackModal } from "./components/FeedbackModal";
+import { HelpCornerButton } from "./components/HelpCornerButton";
 
 export const App: React.FC = () => {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
   const handleOpenPricing = () => {
     const pricingEl = document.getElementById("pricing");
@@ -28,6 +31,10 @@ export const App: React.FC = () => {
 
   const handleOpenCheckout = () => {
     setIsCheckoutOpen(true);
+  };
+
+  const handleOpenFeedback = () => {
+    setIsFeedbackOpen(true);
   };
 
   return (
@@ -79,10 +86,19 @@ export const App: React.FC = () => {
       <FAQSection />
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenFeedback={handleOpenFeedback} />
 
       {/* Floating Scroll-Reactive Spirit Mascot Companion */}
       <BeaconSpiritCinematic />
+
+      {/* Floating Help Corner & Bug Reporting Desk */}
+      <HelpCornerButton onOpenFeedback={handleOpenFeedback} />
+
+      {/* Help & Bug Reporting Modal */}
+      <FeedbackModal
+        isOpen={isFeedbackOpen}
+        onClose={() => setIsFeedbackOpen(false)}
+      />
 
       {/* Lemon Squeezy Checkout Modal */}
       <CheckoutModal

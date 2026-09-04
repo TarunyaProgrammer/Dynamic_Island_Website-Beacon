@@ -8,13 +8,19 @@ import {
   Check, 
   Flame, 
   Search, 
-  Command,
-  Layout,
-  Layers,
-  BatteryCharging,
-  Pin,
-  Compass
+  Command, 
+  Layout, 
+  Layers, 
+  BatteryCharging, 
+  Pin, 
+  Compass 
 } from "lucide-react";
+
+const AppleIcon: React.FC<{ size?: number; color?: string }> = ({ size = 12, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 170 170" fill={color} style={{ display: "inline-block", verticalAlign: "middle" }} aria-label="Apple">
+    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.74 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.33-6.19-9.54-11.09-20.73-14.7-33.56-3.6-12.83-5.41-24.81-5.41-35.94 0-14.58 3.7-26.68 11.1-36.31 7.4-9.63 16.71-14.54 27.93-14.74 5.1 0 10.77 1.43 17.01 4.3 6.24 2.87 10.09 4.36 11.55 4.46 1.7 0 5.75-1.57 12.16-4.71 6.4-3.14 12.06-4.54 16.99-4.21 12.76.94 22.84 5.69 30.23 14.26-11.08 6.72-16.51 16.27-16.28 28.66.24 9.87 4.04 18.06 11.41 24.58 7.37 6.52 16.03 10.23 25.99 11.13-2.32 6.94-5.08 14.07-8.28 21.39zM119.22 31.84c0-7.72 2.76-14.88 8.27-21.49 5.51-6.61 12.35-10.35 20.52-11.23.23 1.04.35 1.98.35 2.81 0 7.61-2.92 14.88-8.76 21.82-5.84 6.94-12.81 10.66-20.91 11.17-.12-.94-.18-1.97-.18-3.08z"/>
+  </svg>
+);
 
 type SurfaceView = "island" | "menubar" | "command";
 
@@ -230,7 +236,7 @@ export const IslandSimulator: React.FC = () => {
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "14px", fontWeight: 600 }}>
-                <span></span>
+                <AppleIcon size={12} color="#ffffff" />
                 <span style={{ color: "#ffffff", fontWeight: 800 }}>Beacon</span>
                 <span style={{ opacity: 0.65 }}>Goals</span>
                 <span style={{ opacity: 0.65 }}>Focus</span>
@@ -489,7 +495,9 @@ export const IslandSimulator: React.FC = () => {
             {/* macOS Dock */}
             <div style={{ marginTop: "auto", marginBottom: "12px", display: "flex", justifyContent: "center", width: "100%", zIndex: 20 }}>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 12px", borderRadius: "14px", backgroundColor: "rgba(18, 20, 28, 0.7)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.1)" }}>
-                <div style={{ width: "26px", height: "26px", borderRadius: "6px", backgroundColor: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}></div>
+                <div style={{ width: "26px", height: "26px", borderRadius: "6px", backgroundColor: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>
+                  <AppleIcon size={14} color="#ffffff" />
+                </div>
                 <div style={{ width: "26px", height: "26px", borderRadius: "6px", backgroundColor: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px" }}><Compass size={14} color="#ffffff" /></div>
                 <div style={{ width: "26px", height: "26px", borderRadius: "6px", backgroundColor: "#1e2230", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px" }}>&gt;_</div>
                 <img src="/logo.png" alt="Beacon" style={{ width: "30px", height: "30px", objectFit: "contain" }} />

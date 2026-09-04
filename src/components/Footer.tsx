@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, Check, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowRight, Check, ArrowUpRight, Sparkles, Lock, AlertCircle, Loader2 } from "lucide-react";
 
 // Crisp inline SVG brand icons for Retina displays
 const GithubIcon: React.FC<{ size?: number }> = ({ size = 15 }) => (
@@ -23,16 +23,54 @@ const LinkedinIcon: React.FC<{ size?: number }> = ({ size = 14 }) => (
   </svg>
 );
 
-export const Footer: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+interface FooterProps {
+  onOpenFeedback?: () => void;
+}
 
-  const handleSubmit = (e: React.FormEvent) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenFeedback }) => {
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim() && email.includes("@")) {
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
-      setEmail("");
+    const cleanEmail = email.trim();
+    if (!cleanEmail || !cleanEmail.includes("@")) return;
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    const payload = {
+      _subject: `New Beacon Dispatch Subscriber: ${cleanEmail}`,
+      _template: "table",
+      subscriber_email: cleanEmail,
+      source: "Beacon Marketing Website - Footer Dispatch (beacon.tarunya.me)",
+      submitted_at: new Date().toLocaleString("en-US", { timeZoneName: "short" }),
+      message: `A new user has subscribed to the Beacon Dispatch newsletter on beacon.tarunya.me.\n\nSubscriber Email: ${cleanEmail}`,
+    };
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/tarunya.programmer@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setEmail("");
+        setTimeout(() => setSubmitted(false), 7000);
+      } else {
+        throw new Error("Relay error");
+      }
+    } catch {
+      setSubmitError("Network issue. Click to email directly.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -210,6 +248,7 @@ export const Footer: React.FC = () => {
                 />
                 <button
                   type="submit"
+                  disabled={submitting}
                   aria-label="Subscribe to updates"
                   style={{
                     backgroundColor: "var(--accent-obsidian)",
@@ -217,7 +256,7 @@ export const Footer: React.FC = () => {
                     borderRadius: "var(--radius-pill)",
                     color: "#FFFFFF",
                     padding: "7px 12px",
-                    cursor: "pointer",
+                    cursor: submitting ? "wait" : "pointer",
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "4px",
@@ -225,18 +264,25 @@ export const Footer: React.FC = () => {
                     fontWeight: 700,
                     transition: "all 0.15s ease",
                     flexShrink: 0,
+                    opacity: submitting ? 0.7 : 1,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "var(--accent-solar)";
-                    e.currentTarget.style.color = "#000000";
+                    if (!submitting) {
+                      e.currentTarget.style.backgroundColor = "var(--accent-solar)";
+                      e.currentTarget.style.color = "#000000";
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "var(--accent-obsidian)";
-                    e.currentTarget.style.color = "#FFFFFF";
+                    if (!submitting) {
+                      e.currentTarget.style.backgroundColor = "var(--accent-obsidian)";
+                      e.currentTarget.style.color = "#FFFFFF";
+                    }
                   }}
                 >
                   {submitted ? (
                     <Check size={14} color="#10b981" />
+                  ) : submitting ? (
+                    <Loader2 size={12} className="animate-spin" />
                   ) : (
                     <>
                       <span>Join</span>
@@ -249,14 +295,40 @@ export const Footer: React.FC = () => {
               {submitted && (
                 <span
                   style={{
-                    display: "inline-block",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "5px",
                     fontFamily: "var(--font-mono)",
                     fontSize: "11px",
                     color: "var(--accent-emerald)",
                     marginTop: "6px",
                   }}
                 >
-                  ✓ Subscribed to local dispatch
+                  <Check size={12} />
+                  <span>Subscribed! Notification sent to architect.</span>
+                </span>
+              )}
+
+              {submitError && (
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "5px",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "11px",
+                    color: "#ef4444",
+                    marginTop: "6px",
+                  }}
+                >
+                  <AlertCircle size={12} />
+                  <span>{submitError}</span>
+                  <a
+                    href={`mailto:tarunya.programmer@gmail.com?subject=Beacon%20Dispatch%20Subscription&body=Hi%20Tarunya,%20please%20subscribe%20me%20to%20Beacon%20Dispatch:%20${encodeURIComponent(email)}`}
+                    style={{ color: "var(--accent-solar)", textDecoration: "underline" }}
+                  >
+                    Direct Email
+                  </a>
                 </span>
               )}
             </form>
@@ -273,7 +345,10 @@ export const Footer: React.FC = () => {
                 textTransform: "uppercase",
               }}
             >
-              <span>🔒 100% Private</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                <Lock size={10} color="var(--accent-emerald)" />
+                <span>100% Private</span>
+              </span>
               <span>·</span>
               <span>Air-Gapped macOS Sync</span>
             </div>
@@ -602,6 +677,40 @@ export const Footer: React.FC = () => {
                   onMouseEnter={(e) => { e.currentTarget.style.color = "var(--text-ink)"; e.currentTarget.style.transform = "translateX(2px)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-body)"; e.currentTarget.style.transform = "translateX(0)"; }}>
                   Founder's Letter
+                </a>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={onOpenFeedback}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    margin: 0,
+                    color: "var(--text-body)",
+                    fontSize: "13px",
+                    cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    transition: "all 0.15s ease",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "var(--accent-solar)"; e.currentTarget.style.transform = "translateX(2px)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-body)"; e.currentTarget.style.transform = "translateX(0)"; }}
+                >
+                  <span>Bug Reports & Help Desk</span>
+                  <span style={{ fontSize: "9px", fontFamily: "var(--font-mono)", padding: "1px 5px", borderRadius: "4px", backgroundColor: "rgba(249, 115, 22, 0.12)", border: "1px solid rgba(249, 115, 22, 0.3)", color: "var(--accent-solar)", fontWeight: 700 }}>LIVE</span>
+                </button>
+              </li>
+              <li>
+                <a
+                  href="mailto:tarunya.programmer@gmail.com?subject=Beacon%20Architect%20Contact"
+                  style={{ color: "var(--text-body)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px", transition: "all 0.15s ease" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "var(--text-ink)"; e.currentTarget.style.transform = "translateX(2px)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-body)"; e.currentTarget.style.transform = "translateX(0)"; }}
+                >
+                  <span>Contact Architect</span>
                 </a>
               </li>
               <li>

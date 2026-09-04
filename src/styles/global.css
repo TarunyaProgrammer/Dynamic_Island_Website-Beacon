@@ -473,3 +473,22 @@ section { animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
     gap: 24px 16px;
   }
 }
+
+/* Floating Help Corner Assistant */
+.help-corner-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 90;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .help-corner-container {
+    bottom: 84px;
+    left: 14px;
+  }
+  .help-corner-text {
+    display: none;
+  }
+}
