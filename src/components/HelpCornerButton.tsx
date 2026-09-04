@@ -15,44 +15,19 @@ export const HelpCornerButton: React.FC<HelpCornerButtonProps> = ({ onOpenFeedba
         type="button"
         onClick={onOpenFeedback}
         aria-label="Open Help & Bug Reporting Desk"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "8px",
-          padding: "8px 14px",
-          borderRadius: "100px",
-          backgroundColor: "rgba(18, 20, 28, 0.85)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          border: "1px solid var(--border-subtle)",
-          color: "var(--text-ink)",
-          fontSize: "12px",
-          fontWeight: 600,
-          cursor: "pointer",
-          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4)",
-          transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "var(--accent-solar)";
-          e.currentTarget.style.transform = "translateY(-2px)";
-          e.currentTarget.style.boxShadow = "0 12px 28px rgba(249, 115, 22, 0.2)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "var(--border-subtle)";
-          e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.4)";
-        }}
+        className="help-corner-btn"
       >
         <span
           style={{
-            width: "6px",
-            height: "6px",
+            width: "7px",
+            height: "7px",
             borderRadius: "50%",
-            backgroundColor: "var(--accent-solar)",
-            boxShadow: "0 0 8px var(--accent-solar)",
+            backgroundColor: "#F97316",
+            boxShadow: "0 0 10px rgba(249, 115, 22, 0.85)",
+            flexShrink: 0,
           }}
         />
-        <HelpCircle size={14} color="var(--accent-solar)" />
+        <HelpCircle size={15} color="#F97316" style={{ flexShrink: 0 }} />
         <span className="help-corner-text">Help & Feedback</span>
       </button>
     </aside>
