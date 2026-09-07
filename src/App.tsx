@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { WaitlistPage } from "./components/Waitlist/WaitlistPage";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { IslandSimulator } from "./components/IslandSimulator";
@@ -18,9 +19,32 @@ import { CheckoutModal } from "./components/CheckoutModal";
 import { FeedbackModal } from "./components/FeedbackModal";
 import { HelpCornerButton } from "./components/HelpCornerButton";
 
-export const App: React.FC = () => {
+interface AppProps {
+  initialMode?: "waitlist" | "full";
+}
+
+export const App: React.FC<AppProps> = ({ initialMode }) => {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  const [mode, setMode] = useState<"waitlist" | "full">(() => {
+    if (initialMode) return initialMode;
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("view") === "full" || params.get("preview") === "full") {
+        return "full";
+      }
+      if (params.get("view") === "waitlist") {
+        return "waitlist";
+      }
+    }
+    // Default to full in test suite unless specified, waitlist in production/browser
+    return import.meta.env.MODE === "test" ? "full" : "waitlist";
+  });
+
+  // Primary Default View for Marketing on main branch: Luxury Waitlist
+  if (mode === "waitlist") {
+    return <WaitlistPage />;
+  }
 
   const handleOpenPricing = () => {
     const pricingEl = document.getElementById("pricing");
