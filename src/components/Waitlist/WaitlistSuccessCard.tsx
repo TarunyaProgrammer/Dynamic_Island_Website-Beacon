@@ -54,17 +54,17 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
         {/* Queue Pass Box */}
         <div className="ticket-queue-box">
           <div>
-            <div style={{ fontSize: "10px", fontFamily: "monospace", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+            <div style={{ fontSize: "10.5px", fontFamily: "var(--font-body)", letterSpacing: "0.12em", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", fontWeight: 700 }}>
               YOUR QUEUE ALLOCATION
             </div>
             <div className="queue-number">#{queuePosition}</div>
           </div>
           <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: "10px", fontFamily: "monospace", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+            <div style={{ fontSize: "10.5px", fontFamily: "var(--font-body)", letterSpacing: "0.12em", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", fontWeight: 700 }}>
               REGISTERED RECIPIENT
             </div>
-            <div style={{ fontSize: "13px", fontFamily: "monospace", color: "#FFFFFF" }}>{email}</div>
-            <div style={{ fontSize: "11px", fontFamily: "monospace", color: "rgba(255,255,255,0.4)", marginTop: "2px" }}>
+            <div style={{ fontSize: "13px", fontFamily: "var(--font-body)", fontWeight: 700, color: "#FFFFFF" }}>{email}</div>
+            <div style={{ fontSize: "11px", fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.5)", marginTop: "2px" }}>
               {macModel}
             </div>
           </div>
@@ -72,7 +72,7 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
 
         {/* Privileges */}
         <div style={{ marginBottom: "20px" }}>
-          <div style={{ fontSize: "11px", fontFamily: "monospace", color: "rgba(255,255,255,0.5)", marginBottom: "12px", textTransform: "uppercase" }}>
+          <div style={{ fontSize: "11px", fontFamily: "var(--font-body)", letterSpacing: "0.12em", fontWeight: 700, color: "rgba(255,255,255,0.6)", marginBottom: "12px", textTransform: "uppercase" }}>
             YOUR PIONEER PRIVILEGES:
           </div>
           <div className="privilege-row">
@@ -111,10 +111,11 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
             style={{
               background: "none",
               border: "none",
-              color: "rgba(255,255,255,0.4)",
-              fontFamily: "monospace",
-              fontSize: "11px",
+              color: "rgba(255,255,255,0.45)",
+              fontFamily: "var(--font-body)",
+              fontSize: "11.5px",
               cursor: "pointer",
+              transition: "color 0.2s ease",
             }}
           >
             ← Register another email or Mac device

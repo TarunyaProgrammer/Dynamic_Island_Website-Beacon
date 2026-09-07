@@ -44,7 +44,7 @@
   /* Typography Fonts */
   --font-serif: "EB Garamond", Garamond, Georgia, serif;
   --font-sans: "Figtree", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  --font-mono: "JetBrains Mono", SFMono-Regular, Menlo, monospace;
+  --font-mono: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
 
   /* Layout */
   --radius-sm: 8px;

@@ -1,19 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface WaitlistHeroProps {
   onJoinClick: () => void;
 }
 
 export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
-  const [hudMode, setHudMode] = useState<"focus" | "streak" | "music" | "specs">("focus");
-
   return (
     <section id="hardware" className="beacon-hero-section">
-      <div className="beacon-hero-glow"></div>
+      {/* Background Cinematic Studio Image Layer */}
+      <div className="hero-cinematic-bg-wrapper">
+        <img
+          src="/assets/beacon-cinematic-bg.jpg"
+          alt="MacBook Pro with Beacon Native Dynamic Island"
+          className="hero-cinematic-bg-img"
+        />
+        <div className="hero-cinematic-vignette"></div>
+      </div>
+
+      {/* Atmospheric Anamorphic Light Accents */}
+      <div className="cinematic-edge-light-left"></div>
+      <div className="cinematic-anamorphic-flare"></div>
 
       <div className="beacon-hero-grid">
-        {/* Left Column: Solid Impeccable Typography */}
-        <div>
+        {/* Left Column: Bold Titles, Telemetry & Action Button */}
+        <div className="beacon-hero-text-col">
+          <div className="cinematic-eyebrow-pill">
+            <span className="eyebrow-pip"></span>
+            <span>NEXT-GEN MACOS WORKSPACE</span>
+          </div>
+
           <h1 className="beacon-hero-headline">
             Awaken your <br />
             physical Mac notch with{" "}
@@ -21,7 +36,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
           </h1>
 
           <p className="beacon-hero-subhead">
-            The intentional Dynamic Island & hardware companion workspace for macOS.
+            The intentional Dynamic Island & companion workspace for macOS.
             Engineered in pure native Swift with 0.1% idle CPU. Pay $18 once, own forever.
           </p>
 
@@ -42,67 +57,38 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
             </div>
           </div>
 
-          <button onClick={onJoinClick} className="beacon-nav-cta" style={{ fontSize: "14px", padding: "13px 32px" }}>
-            CLAIM PIONEER ACCESS ↓
-          </button>
-        </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+            <button onClick={onJoinClick} className="beacon-hero-cta group">
+              <span>CLAIM PIONEER ACCESS</span>
+              <div className="cta-nested-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <polyline points="19 12 12 19 5 12" />
+                </svg>
+              </div>
+            </button>
 
-        {/* Right Column: Unboxed 3D Hardware Render */}
-        <div className="beacon-mockup-frame">
-          <div className="macbook-render-wrapper">
-            <img
-              src="/assets/beacon-cobalt-hero.jpg"
-              alt="MacBook Pro Space Black with Beacon Dynamic Island in Electric Cobalt"
-              className="macbook-render-img"
-            />
-          </div>
-
-          {/* Interactive HUD Switchers (Real authored SVGs, zero emojis) */}
-          <div className="hero-hud-switcher">
-            <button
-              onClick={() => setHudMode("focus")}
-              className={`hud-mode-pill ${hudMode === "focus" ? "hud-mode-active" : "hud-mode-inactive"}`}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              <span>Focus Sprint (24:18)</span>
-            </button>
-            <button
-              onClick={() => setHudMode("streak")}
-              className={`hud-mode-pill ${hudMode === "streak" ? "hud-mode-active" : "hud-mode-inactive"}`}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-              </svg>
-              <span>Habit Streaks (18 Days)</span>
-            </button>
-            <button
-              onClick={() => setHudMode("music")}
-              className={`hud-mode-pill ${hudMode === "music" ? "hud-mode-active" : "hud-mode-inactive"}`}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M9 18V5l12-2v13" />
-                <circle cx="6" cy="18" r="3" />
-                <circle cx="18" cy="16" r="3" />
-              </svg>
-              <span>Media HUD</span>
-            </button>
-            <button
-              onClick={() => setHudMode("specs")}
-              className={`hud-mode-pill ${hudMode === "specs" ? "hud-mode-active" : "hud-mode-inactive"}`}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
-              </svg>
-              <span>0.1% CPU · SQLite</span>
-            </button>
+            {/* Subtle Interactive Mode Switchers */}
+            <div className="hero-hud-switcher" style={{ margin: 0 }}>
+              <button
+                onClick={onJoinClick}
+                className="hud-mode-pill hud-mode-active"
+                style={{ fontSize: "11px" }}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+                <span>Habit Streaks (18 Days)</span>
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Right Column: Visual Spatial Anchor */}
+        <div className="beacon-hero-empty-right-anchor"></div>
       </div>
     </section>
   );
 };
+
+

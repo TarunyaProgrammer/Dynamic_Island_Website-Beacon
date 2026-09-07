@@ -1,125 +1,261 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+
+interface FeatureCard {
+  id: string;
+  title: string;
+  eyebrow: string;
+  image: string;
+  badge: string;
+  metric: string;
+  metricLabel: string;
+  summary: string;
+  details: string[];
+  hudGraphicType: "graph" | "bars" | "gauge" | "grid";
+}
+
+const FEATURE_CARDS: FeatureCard[] = [
+  {
+    id: "hardware",
+    title: "Awaken Idle Hardware",
+    eyebrow: "PHYSICAL INTEGRATION",
+    image: "/assets/macbook-notch-mockup.jpg",
+    badge: "0.00 MS POP-OVER",
+    metric: "0.00 ms",
+    metricLabel: "POPOVER LATENCY",
+    summary: "Transforms dead camera notch glass into an active, glanceable Dynamic Island workspace without stealing screen real estate.",
+    details: [
+      "Zero window-switching: lives at the physical top margin of your screen.",
+      "Hardware-calibrated: perfectly hugs the 14\" and 16\" MacBook Pro camera housing.",
+      "Global hotkey trigger: ⌘⇧B instantly expands or contracts the island HUD.",
+      "Supports external Studio Displays & Pro Display XDRs via seamless multi-monitor mirroring.",
+    ],
+    hudGraphicType: "graph",
+  },
+  {
+    id: "paradigms",
+    title: "6 Goal Paradigms",
+    eyebrow: "MOMENTUM ENGINE",
+    image: "/assets/dashboard-clean.png",
+    badge: "6 PARADIGMS",
+    metric: "6 MODES",
+    metricLabel: "TRACKING ENGINES",
+    summary: "One unified companion HUD for habit streaks, deadline burn-downs, milestone accumulation, and deep work sprints.",
+    details: [
+      "Habit Streaks: Visual chain tracking with flame momentum and loss prevention reminders.",
+      "Deadline Burn-Downs: Live countdown pacing bars showing exact days remaining.",
+      "Accumulative Targets: Track pages written, commits pushed, or ARR targets achieved.",
+      "Deep Focus Sprints: 25/5 or 50/10 intervals that lock out notifications and play ambient binaural audio.",
+    ],
+    hudGraphicType: "bars",
+  },
+  {
+    id: "performance",
+    title: "0.1% Idle CPU & Swift",
+    eyebrow: "NATIVE ARCHITECTURE",
+    image: "/assets/menubar-hub-clean.png",
+    badge: "45 MB RESIDENT",
+    metric: "0.1%",
+    metricLabel: "IDLE CPU LOAD",
+    summary: "Built from scratch in pure Swift and AppKit. Zero Electron memory hogs, zero battery drain, completely silent fans.",
+    details: [
+      "Pure Native Swift: compiled directly to Apple Silicon arm64 machine instructions.",
+      "Battery-kind: consumes under 0.1% CPU during background operation.",
+      "Instant launch: cold starts in under 120 milliseconds.",
+      "Menubar companion: quick-peek telemetry dock accessible from any macOS full-screen space.",
+    ],
+    hudGraphicType: "gauge",
+  },
+  {
+    id: "privacy",
+    title: "Local SQLite WAL",
+    eyebrow: "SOVEREIGN PRIVACY",
+    image: "/assets/notch-island-clean.png",
+    badge: "ZERO TELEMETRY",
+    metric: "100%",
+    metricLabel: "OFFLINE STORAGE",
+    summary: "All habits, focus logs, and goals are stored in a local SQLite database directly on your Mac NVMe drive. No cloud lock-in.",
+    details: [
+      "Strictly air-gapped: zero analytical beacons, zero tracking pixels, zero phone-home scripts.",
+      "SQLite WAL mode: crash-resilient ACID storage with sub-millisecond query execution.",
+      "One-click data export: export your entire history as JSON or CSV anytime.",
+      "Pay once ($18), own forever: zero recurring renewal anxiety.",
+    ],
+    hudGraphicType: "grid",
+  },
+];
 
 export const WaitlistCards: React.FC = () => {
+  const [selectedCard, setSelectedCard] = useState<FeatureCard | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollNext = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 340, behavior: "smooth" });
+    }
+  };
+
+  const scrollPrev = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -340, behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="paradigms" className="beacon-white-section">
-      <div className="white-section-container">
-        <div className="white-section-header">
-          <span className="white-section-eyebrow">ARCHITECTURAL PHILOSOPHY</span>
-          <h2 className="white-section-title">
-            The hardware companion engineered to build unbreakable focus.
+    <section id="paradigms" className="beacon-whoop-section">
+      <div className="whoop-section-container">
+        {/* Editorial WHOOP-Style Typography Header */}
+        <div className="whoop-section-header">
+          <h2 className="whoop-section-title">
+            The workspace proven to build unbreakable focus
           </h2>
-          <p className="white-section-desc">
-            Modern productivity apps have devolved into 400MB browser-based subscriptions that
-            fight for your attention. Beacon rejects this. It turns your physical Mac notch into an
-            intentional workspace.
+          <p className="whoop-section-desc">
+            Beacon combines physical hardware notch integration with 6 behavioral paradigms to help
+            you execute deep work, track compounding habits, and protect flow — starting day one.
           </p>
         </div>
 
-        <div className="editorial-cards-grid">
-          {/* Card 1: Real Hardware Notch Screenshot */}
-          <div className="editorial-card">
-            <div>
-              <div className="card-media-frame">
-                <img
-                  src="/assets/macbook-notch-mockup.jpg"
-                  alt="Real MacBook Notch HUD running Beacon"
-                  className="card-media-img"
-                  loading="lazy"
-                />
+        {/* Carousel Container with Scroll Arrow */}
+        <div className="whoop-carousel-wrapper">
+          <div ref={scrollContainerRef} className="whoop-cards-track">
+            {FEATURE_CARDS.map((card) => (
+              <div key={card.id} className="whoop-card">
+                {/* Full-bleed Visual Image Frame */}
+                <div className="whoop-card-image-bg">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="whoop-card-img"
+                    loading="lazy"
+                  />
+                  <div className="whoop-card-scrim"></div>
+                </div>
+
+                {/* Top Card Content: Clean Bold Title on Image */}
+                <div className="whoop-card-content">
+                  <h3 className="whoop-card-title">{card.title}</h3>
+                </div>
+
+                {/* Card Visual Graphic HUD Overlay (WHOOP aesthetic) */}
+                <div className="whoop-card-hud-overlay">
+                  {card.hudGraphicType === "graph" && (
+                    <div className="whoop-hud-pill">
+                      <span className="hud-pill-dot green"></span>
+                      <span>0.00 MS POP-OVER</span>
+                    </div>
+                  )}
+                  {card.hudGraphicType === "bars" && (
+                    <div className="whoop-hud-pill">
+                      <span className="hud-pill-dot amber"></span>
+                      <span>6 PARADIGMS ACTIVE</span>
+                    </div>
+                  )}
+                  {card.hudGraphicType === "gauge" && (
+                    <div className="whoop-hud-pill">
+                      <span className="hud-pill-dot cyan"></span>
+                      <span>0.1% CPU · 45MB RAM</span>
+                    </div>
+                  )}
+                  {card.hudGraphicType === "grid" && (
+                    <div className="whoop-hud-pill">
+                      <span className="hud-pill-dot purple"></span>
+                      <span>AIR-GAPPED SQLITE</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Minimalist Floating Plus (+) Button */}
+                <button
+                  onClick={() => setSelectedCard(card)}
+                  className="whoop-card-plus-btn"
+                  aria-label={`View details for ${card.title}`}
+                  title="Expand specifications"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </button>
               </div>
-              <div className="card-badge">HARDWARE INTEGRATION</div>
-              <h3 className="card-title">Awaken Idle Hardware</h3>
-              <p className="card-body">
-                Transforms dead camera notch glass into an active, glanceable Dynamic Island HUD.
-                Zero window-switching required.
-              </p>
-            </div>
-            <div className="card-footer">
-              <span>POP-OVER DELAY</span>
-              <span className="card-footer-metric">0.00 MS</span>
-            </div>
+            ))}
           </div>
 
-          {/* Card 2: Real Dashboard & 6 Paradigms */}
-          <div className="editorial-card">
-            <div>
-              <div className="card-media-frame">
-                <img
-                  src="/assets/dashboard-clean.png"
-                  alt="Beacon 6 Goal Paradigms Workspace"
-                  className="card-media-img"
-                  loading="lazy"
-                />
-              </div>
-              <div className="card-badge" style={{ color: "#34D399", borderColor: "rgba(52,211,153,0.3)", background: "rgba(52,211,153,0.1)" }}>
-                BEHAVIORAL ENGINE
-              </div>
-              <h3 className="card-title">6 Goal Paradigms</h3>
-              <p className="card-body">
-                Habit streaks, deadline burn-downs, and accumulative targets all unified in a
-                single tactile HUD built for real humans.
-              </p>
-            </div>
-            <div className="card-footer">
-              <span>TRACKING MODES</span>
-              <span className="card-footer-metric" style={{ color: "#34D399" }}>6 PARADIGMS</span>
-            </div>
-          </div>
+          {/* Carousel Next Arrow Button */}
+          <button
+            onClick={scrollNext}
+            className="whoop-carousel-arrow-btn"
+            aria-label="Next cards"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
 
-          {/* Card 3: Menubar Hub & 0.1% CPU */}
-          <div className="editorial-card">
-            <div>
-              <div className="card-media-frame">
-                <img
-                  src="/assets/menubar-hub-clean.png"
-                  alt="Beacon Native Swift Menubar Telemetry"
-                  className="card-media-img"
-                  loading="lazy"
-                />
-              </div>
-              <div className="card-badge" style={{ color: "#38BDF8", borderColor: "rgba(56,189,248,0.3)", background: "rgba(56,189,248,0.1)" }}>
-                NATIVE PERFORMANCE
-              </div>
-              <h3 className="card-title">0.1% Idle CPU & Swift</h3>
-              <p className="card-body">
-                Zero Electron memory bloat. 45MB RAM resident. Keeps your MacBook icy cold,
-                completely silent, and preserves all-day battery.
-              </p>
-            </div>
-            <div className="card-footer">
-              <span>MEMORY FOOTPRINT</span>
-              <span className="card-footer-metric" style={{ color: "#38BDF8" }}>45 MB RESIDENT</span>
-            </div>
-          </div>
-
-          {/* Card 4: Clean Dynamic Island Notch & SQLite WAL */}
-          <div className="editorial-card">
-            <div>
-              <div className="card-media-frame">
-                <img
-                  src="/assets/notch-island-clean.png"
-                  alt="Beacon Local SQLite Air-Gapped HUD"
-                  className="card-media-img"
-                  loading="lazy"
-                />
-              </div>
-              <div className="card-badge" style={{ color: "#818CF8", borderColor: "rgba(129,140,248,0.3)", background: "rgba(129,140,248,0.1)" }}>
-                AIR-GAPPED PRIVACY
-              </div>
-              <h3 className="card-title">Local SQLite WAL</h3>
-              <p className="card-body">
-                Your focus history, habits, and goals stay strictly on your Mac's NVMe drive. No
-                cloud lock-in, zero third-party telemetry.
-              </p>
-            </div>
-            <div className="card-footer">
-              <span>TELEMETRY</span>
-              <span className="card-footer-metric" style={{ color: "#818CF8" }}>ZERO (AIR-GAPPED)</span>
-            </div>
+        {/* Bottom CTA / Scarcity Link */}
+        <div className="whoop-bottom-cta">
+          <a href="#hardware" className="whoop-cta-link">
+            JOIN PIONEER WAITLIST
+          </a>
+          <div className="whoop-carousel-dots">
+            <span className="whoop-dot active"></span>
+            <span className="whoop-dot"></span>
+            <span className="whoop-dot"></span>
+            <span className="whoop-dot"></span>
           </div>
         </div>
       </div>
+
+      {/* Pop-up Feature Detail Window (When + is clicked) */}
+      {selectedCard && (
+        <div className="whoop-modal-backdrop" onClick={() => setSelectedCard(null)}>
+          <div className="whoop-detail-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="whoop-modal-header">
+              <div className="whoop-modal-eyebrow">{selectedCard.eyebrow}</div>
+              <button
+                onClick={() => setSelectedCard(null)}
+                className="whoop-modal-close"
+                aria-label="Close details"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+
+            <h3 className="whoop-modal-title">{selectedCard.title}</h3>
+            <p className="whoop-modal-summary">{selectedCard.summary}</p>
+
+            <div className="whoop-modal-metric-box">
+              <div>
+                <div className="modal-metric-num">{selectedCard.metric}</div>
+                <div className="modal-metric-lbl">{selectedCard.metricLabel}</div>
+              </div>
+              <div className="modal-metric-badge">{selectedCard.badge}</div>
+            </div>
+
+            <div className="whoop-modal-specs">
+              <div className="modal-specs-title">ENGINEERING SPECIFICATIONS</div>
+              <ul className="modal-specs-list">
+                {selectedCard.details.map((item, idx) => (
+                  <li key={idx}>
+                    <span className="spec-check">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button
+              onClick={() => setSelectedCard(null)}
+              className="whoop-modal-done-btn"
+            >
+              GOT IT
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
+
