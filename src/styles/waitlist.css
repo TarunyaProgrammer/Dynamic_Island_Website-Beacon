@@ -1,0 +1,875 @@
+/**
+ * BEACON LUXURY WAITLIST — VANILLA CSS STYLESHEET
+ * Apple Hardware Aesthetics, True Obsidian (#07080B), Solar Amber (#F59E0B)
+ * Pure CSS (Zero Tailwind dependency)
+ */
+
+/* Root Page Styling */
+.waitlist-page-root {
+  min-height: 100vh;
+  background-color: #07080B;
+  color: #FFFFFF;
+  font-family: var(--font-sans, "Figtree", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif);
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle Grid Canvas Background */
+.waitlist-grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: linear-gradient(to right, #ffffff 1px, transparent 1px),
+                    linear-gradient(to bottom, #ffffff 1px, transparent 1px);
+  background-size: 44px 44px;
+  z-index: 0;
+}
+
+/* Ambient Radial Glows */
+.waitlist-glow-primary {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.waitlist-glow-secondary {
+  position: absolute;
+  top: 180px;
+  left: 20%;
+  width: 400px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(56, 189, 248, 0) 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================================================
+   1. FLOATING NAVIGATION PILL
+   ========================================================================= */
+.waitlist-nav-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.waitlist-nav-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: rgba(15, 17, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 16px rgba(245, 158, 11, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.waitlist-nav-pill:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5), 0 0 24px rgba(245, 158, 11, 0.15);
+}
+
+.waitlist-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.waitlist-logo-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, monospace);
+  font-weight: 900;
+  font-size: 13px;
+  color: #07080B;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.waitlist-brand-name {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+}
+
+.waitlist-telemetry-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+}
+
+.pulse-dot-wrapper {
+  position: relative;
+  display: flex;
+  width: 8px;
+  height: 8px;
+}
+
+.pulse-dot-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background-color: #F59E0B;
+  opacity: 0.75;
+  animation: pulsePing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.pulse-dot-core {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #F59E0B;
+}
+
+@keyframes pulsePing {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.waitlist-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: none;
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  color: #07080B;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-sans, sans-serif);
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.35);
+  transition: all 0.2s ease;
+}
+
+.waitlist-nav-btn:hover {
+  background: linear-gradient(135deg, #FCD34D, #FBBF24);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.5);
+}
+
+.waitlist-nav-btn:active {
+  transform: scale(0.96);
+}
+
+/* =========================================================================
+   2. HERO SECTION & TYPOGRAPHY
+   ========================================================================= */
+.waitlist-hero-section {
+  position: relative;
+  z-index: 10;
+  padding-top: 120px;
+  padding-bottom: 48px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.waitlist-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F59E0B;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  backdrop-filter: blur(12px);
+}
+
+.waitlist-title {
+  max-width: 900px;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: #FFFFFF;
+  margin: 0 auto 20px auto;
+}
+
+.waitlist-title-serif {
+  font-family: var(--font-serif, serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, #FFFBEB 0%, #F59E0B 60%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.waitlist-subtitle {
+  max-width: 620px;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0 auto 36px auto;
+}
+
+/* =========================================================================
+   3. HARDWARE DYNAMIC ISLAND SIMULATOR
+   ========================================================================= */
+.notch-simulator-container {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notch-bezel-rim {
+  width: 320px;
+  height: 12px;
+  background: #14171F;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notch-camera-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #34D399;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.9);
+  margin-right: 10px;
+  animation: cameraPulse 2s infinite ease-in-out;
+}
+
+.notch-camera-lens {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #0A0C11;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes cameraPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.notch-capsule {
+  position: relative;
+  margin-top: -2px;
+  border-radius: 24px;
+  background: #07080B;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 6px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.7), 0 0 24px rgba(245, 158, 11, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notch-inner-hud {
+  border-radius: 18px;
+  background: linear-gradient(180deg, #12151D 0%, #090B0F 100%);
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.notch-hud-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.notch-hud-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.notch-hud-subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: 1px;
+}
+
+.notch-badge-pill {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.notch-selector-row {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.notch-tab-btn {
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.notch-tab-active {
+  background: rgba(245, 158, 11, 0.2);
+  color: #FCD34D;
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
+}
+
+.notch-tab-inactive {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.notch-tab-inactive:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================================================
+   4. DOUBLE-BEZEL WAITLIST CARD & FORM
+   ========================================================================= */
+.waitlist-card-wrapper {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  scroll-margin-top: 100px;
+}
+
+.waitlist-outer-bezel {
+  border-radius: 28px;
+  padding: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 32px rgba(245, 158, 11, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.waitlist-inner-card {
+  border-radius: 22px;
+  background: #0C0E14;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: left;
+}
+
+.waitlist-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.waitlist-card-headline {
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.waitlist-price-lock {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.12);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.waitlist-input-group {
+  margin-bottom: 16px;
+}
+
+.waitlist-label {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.waitlist-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: var(--font-sans, sans-serif);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.waitlist-input:focus {
+  border-color: #F59E0B;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.waitlist-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #11131A;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-family: var(--font-mono, monospace);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.waitlist-select:focus {
+  border-color: #F59E0B;
+}
+
+.waitlist-submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #D97706 100%);
+  color: #07080B;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 18px;
+}
+
+.waitlist-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.55);
+}
+
+.waitlist-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.waitlist-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-trailing-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.waitlist-scarcity-box {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.scarcity-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.scarcity-bar-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.scarcity-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #F59E0B, #FCD34D);
+  transition: width 1s ease-out;
+}
+
+.scarcity-note {
+  margin-top: 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.5;
+}
+
+/* =========================================================================
+   5. 3-CARD ARCHITECTURAL BENTO GRID
+   ========================================================================= */
+.waitlist-bento-section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 20px 60px 20px;
+}
+
+.waitlist-bento-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.bento-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #F59E0B;
+}
+
+.bento-title {
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-top: 6px;
+}
+
+.waitlist-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .waitlist-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.bento-outer-card {
+  border-radius: 24px;
+  padding: 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-outer-card:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  transform: translateY(-2px);
+}
+
+.bento-inner-card {
+  border-radius: 18px;
+  background: #0A0C11;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.bento-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.bento-card-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.bento-card-meta {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================================
+   6. VIP ACCESS CONFIRMATION TICKET
+   ========================================================================= */
+.ticket-wrapper {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  border-radius: 28px;
+  padding: 8px;
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.3) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 24px 60px rgba(245, 158, 11, 0.15);
+  animation: ticketPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ticketPop {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.ticket-inner {
+  border-radius: 22px;
+  background: #0A0C11;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.ticket-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.ticket-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #34D399;
+  text-transform: uppercase;
+}
+
+.ticket-batch-pill {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ticket-queue-box {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.queue-number {
+  font-family: var(--font-mono, monospace);
+  font-size: 38px;
+  font-weight: 900;
+  color: #F59E0B;
+}
+
+.privilege-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 10px;
+}
+
+.privilege-check {
+  color: #F59E0B;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+}
+
+.ticket-share-actions {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 12px;
+}
+
+.share-x-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  color: #07080B;
+  border: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.share-x-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.share-copy-btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.share-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* =========================================================================
+   7. MINIMALIST SWISS FOOTER
+   ========================================================================= */
+.waitlist-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 640px) {
+  .waitlist-footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+.footer-links-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-links-group a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links-group a:hover {
+  color: #F59E0B;
+}
+
+.footer-export-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}

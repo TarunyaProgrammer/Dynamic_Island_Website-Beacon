@@ -28,7 +28,6 @@ export const WaitlistPage: React.FC = () => {
   const handleSuccess = (data: { email: string; queuePosition: number; macModel: string }) => {
     setSuccessData(data);
     setClaimedCount(data.queuePosition);
-    // Smooth scroll to card
     const el = document.getElementById("waitlist-form");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -36,15 +35,9 @@ export const WaitlistPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#07080B] text-white selection:bg-amber-500 selection:text-black font-sans relative overflow-x-hidden antialiased">
-      {/* Precision Ambient Grid Background Pattern */}
-      <div
-        className="fixed inset-0 pointer-events-none opacity-[0.035] -z-20"
-        style={{
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-          backgroundSize: "48px 48px",
-        }}
-      />
+    <div className="waitlist-page-root">
+      {/* Precision Grid Pattern */}
+      <div className="waitlist-grid-bg" />
 
       {/* Navigation */}
       <WaitlistNavbar
@@ -52,8 +45,8 @@ export const WaitlistPage: React.FC = () => {
         slotsRemaining={slotsRemaining}
       />
 
-      {/* Main Content Area (Strictly compact ~150-180vh) */}
-      <main className="relative z-10">
+      {/* Main Content Area (Compact ~150-180vh) */}
+      <main style={{ position: "relative", zIndex: 10 }}>
         {!successData ? (
           <WaitlistHero
             claimedCount={claimedCount}
@@ -61,7 +54,7 @@ export const WaitlistPage: React.FC = () => {
             onSuccess={handleSuccess}
           />
         ) : (
-          <div className="pt-28 pb-12 px-4">
+          <div style={{ paddingTop: "140px", paddingBottom: "48px", paddingLeft: "16px", paddingRight: "16px" }}>
             <WaitlistSuccessCard
               email={successData.email}
               queuePosition={successData.queuePosition}
