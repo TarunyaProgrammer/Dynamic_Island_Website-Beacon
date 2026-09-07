@@ -59,25 +59,18 @@
     <meta name="twitter:image" content="https://beacon.tarunya.me/og-image.png" />
     <meta name="twitter:image:alt" content="Beacon - Ambient execution workspace for macOS by Tarunya Kesharwani" />
 
-    <!-- Google Analytics (GA4) Global Site Tag Slot -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BEACONID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BEACONID', {
-        send_page_view: true,
-        cookie_flags: 'SameSite=None;Secure'
-      });
-    </script>
+    <!-- Security & Hardening Directives -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
 
     <!-- Beacon typography: warm precision sans with native fallbacks. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-    <!-- Lemon Squeezy Overlay Checkout SDK -->
-    <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
 
     <!-- Comprehensive Linked Data Graph (Schema.org JSON-LD) -->
     <script type="application/ld+json">
