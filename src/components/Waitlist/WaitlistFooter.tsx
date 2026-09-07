@@ -61,12 +61,19 @@ export const WaitlistFooter: React.FC = () => {
           </div>
 
           <div className="whoop-footer-col">
-            <span className="whoop-col-heading">Company</span>
+            <span className="whoop-col-heading">Founder</span>
             <a href="https://tarunya.me" target="_blank" rel="noopener noreferrer">
-              Founder (Tarunya Kesharwani)
+              Portfolio — tarunya.me
             </a>
             <a href="https://x.com/tarunyakesh" target="_blank" rel="noopener noreferrer">
-              Twitter / X (@tarunyakesh)
+              X — @tarunyakesh
+            </a>
+            <a
+              href="https://www.linkedin.com/in/tarunyakesharwani/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn — Tarunya Kesharwani
             </a>
             <a
               href="https://github.com/TarunyaProgrammer/Dynamic_Island_Website-Beacon"
@@ -97,6 +104,12 @@ export const WaitlistFooter: React.FC = () => {
           </div>
 
           <div className="whoop-footer-signup-block">
+            <aside className="student-rate" aria-label="Student discount">
+              <span className="student-rate-value">88% off for students</span>
+              <a href="https://x.com/tarunyakesh" target="_blank" rel="noopener noreferrer">
+                DM @tarunyakesh on X for a student code ↗
+              </a>
+            </aside>
             <form onSubmit={handleFooterSubmit} className="whoop-footer-input-line">
               <input
                 type="email"
@@ -138,5 +151,4 @@ export const WaitlistFooter: React.FC = () => {
     </footer>
   );
 };
-
 

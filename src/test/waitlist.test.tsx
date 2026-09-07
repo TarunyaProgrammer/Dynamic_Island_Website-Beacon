@@ -10,11 +10,11 @@ describe("Waitlist Marketing Page", () => {
     vi.restoreAllMocks();
   });
 
-  it("renders the luxury typography and interactive notch switcher", () => {
+  it("renders the Beacon launch headline and interactive controls", () => {
     render(<WaitlistPage />);
 
     // Verify main headline
-    expect(screen.getByText(/Awaken your/i)).toBeInTheDocument();
+    expect(screen.getByText(/Make the notch/i)).toBeInTheDocument();
     expect(screen.getAllByText(/BEACON/i).length).toBeGreaterThan(0);
 
     // Verify scarcity banner
@@ -33,9 +33,9 @@ describe("Waitlist Marketing Page", () => {
 
     render(<WaitlistPage />);
 
-    const emailInput = screen.getByPlaceholderText(/Enter work email.../i);
+    const emailInput = screen.getByLabelText(/Email address/i);
     const submitBtn = screen.getByRole("button", {
-      name: /Claim \$18 Key ↗/i,
+      name: /Reserve access/i,
     });
 
     // Enter email
@@ -64,5 +64,53 @@ describe("Waitlist Marketing Page", () => {
     expect(screen.getByText("6 Goal Paradigms")).toBeInTheDocument();
     expect(screen.getByText("0.1% Idle CPU & Swift")).toBeInTheDocument();
     expect(screen.getByText("Local SQLite WAL")).toBeInTheDocument();
+  });
+
+  it("closes the pioneer ticket when its backdrop is clicked", async () => {
+    vi.spyOn(waitlistService, "submitToWaitlist").mockResolvedValue({
+      success: true,
+      queuePosition: 388,
+    });
+    render(<WaitlistPage />);
+
+    fireEvent.change(screen.getByLabelText(/Email address/i), {
+      target: { value: "pioneer@example.com" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /Reserve access/i }));
+
+    await waitFor(() => expect(screen.getByText("PIONEER ACCESS CONFIRMED")).toBeInTheDocument());
+    fireEvent.click(document.querySelector(".beacon-modal-overlay")!);
+
+    expect(screen.queryByText("PIONEER ACCESS CONFIRMED")).not.toBeInTheDocument();
+  });
+
+  it("displays modern custom error badge on invalid email without submitting", async () => {
+    const submitSpy = vi.spyOn(waitlistService, "submitToWaitlist");
+    render(<WaitlistPage />);
+
+    const emailInput = screen.getByLabelText(/Email address/i);
+    const submitBtn = screen.getByRole("button", { name: /Reserve access/i });
+
+    // Submit invalid email format
+    fireEvent.change(emailInput, { target: { value: "fdsf" } });
+    fireEvent.click(submitBtn);
+
+    // Custom badge appears, submit is NOT called
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "Please enter a valid email address"
+    );
+    expect(submitSpy).not.toHaveBeenCalled();
+
+    // Typing clears the error
+    fireEvent.change(emailInput, { target: { value: "fdsf@" } });
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+
+    // Submitting empty also displays helpful message
+    fireEvent.change(emailInput, { target: { value: "   " } });
+    fireEvent.click(submitBtn);
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "Please enter your email address"
+    );
+    expect(submitSpy).not.toHaveBeenCalled();
   });
 });

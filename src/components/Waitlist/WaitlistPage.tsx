@@ -53,16 +53,11 @@ export const WaitlistPage: React.FC = () => {
       <WaitlistFooter />
 
       {/* 6. Persistent Floating Bottom Dock */}
-      <WaitlistFloatingDock
-        slotsRemaining={slotsRemaining}
-        totalAllocation={TOTAL_ALLOCATION}
-        claimedCount={claimedCount}
-        onSuccess={handleSuccess}
-      />
+      <WaitlistFloatingDock onSuccess={handleSuccess} />
 
       {/* 7. Success Ticket Overlay Modal */}
       {successData && (
-        <div className="beacon-modal-overlay">
+        <div className="beacon-modal-overlay" onClick={() => setSuccessData(null)}>
           <WaitlistSuccessCard
             email={successData.email}
             queuePosition={successData.queuePosition}

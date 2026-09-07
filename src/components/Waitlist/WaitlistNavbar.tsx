@@ -34,7 +34,7 @@ export const WaitlistNavbar: React.FC<WaitlistNavbarProps> = ({ onJoinClick }) =
       </ul>
 
       <button onClick={onJoinClick} className="beacon-nav-cta">
-        JOIN WAITLIST
+        CLAIM ACCESS
       </button>
     </nav>
   );

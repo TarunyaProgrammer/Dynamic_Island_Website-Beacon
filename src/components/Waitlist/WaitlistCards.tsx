@@ -90,13 +90,13 @@ export const WaitlistCards: React.FC = () => {
 
   const scrollNext = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 340, behavior: "smooth" });
+      scrollContainerRef.current.scrollBy({ left: 430, behavior: "smooth" });
     }
   };
 
   const scrollPrev = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -340, behavior: "smooth" });
+      scrollContainerRef.current.scrollBy({ left: -430, behavior: "smooth" });
     }
   };
 
@@ -105,13 +105,27 @@ export const WaitlistCards: React.FC = () => {
       <div className="whoop-section-container">
         {/* Editorial WHOOP-Style Typography Header */}
         <div className="whoop-section-header">
-          <h2 className="whoop-section-title">
-            The workspace proven to build unbreakable focus
-          </h2>
-          <p className="whoop-section-desc">
-            Beacon combines physical hardware notch integration with 6 behavioral paradigms to help
-            you execute deep work, track compounding habits, and protect flow — starting day one.
-          </p>
+          <div>
+            <h2 className="whoop-section-title">
+              The workspace proven to build unbreakable focus
+            </h2>
+            <p className="whoop-section-desc">
+              Beacon combines physical hardware notch integration with six behavioral paradigms to
+              protect flow, track momentum, and make daily progress visible.
+            </p>
+          </div>
+          <div className="whoop-carousel-controls" aria-label="Browse Beacon capabilities">
+            <button onClick={scrollPrev} className="whoop-carousel-shift" aria-label="Previous capability">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M14.5 5.5 8 12l6.5 6.5" />
+              </svg>
+            </button>
+            <button onClick={scrollNext} className="whoop-carousel-shift is-next" aria-label="Next capability">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="m9.5 5.5 6.5 6.5-6.5 6.5" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Carousel Container with Scroll Arrow */}
@@ -139,25 +153,21 @@ export const WaitlistCards: React.FC = () => {
                 <div className="whoop-card-hud-overlay">
                   {card.hudGraphicType === "graph" && (
                     <div className="whoop-hud-pill">
-                      <span className="hud-pill-dot green"></span>
                       <span>0.00 MS POP-OVER</span>
                     </div>
                   )}
                   {card.hudGraphicType === "bars" && (
                     <div className="whoop-hud-pill">
-                      <span className="hud-pill-dot amber"></span>
                       <span>6 PARADIGMS ACTIVE</span>
                     </div>
                   )}
                   {card.hudGraphicType === "gauge" && (
                     <div className="whoop-hud-pill">
-                      <span className="hud-pill-dot cyan"></span>
                       <span>0.1% CPU · 45MB RAM</span>
                     </div>
                   )}
                   {card.hudGraphicType === "grid" && (
                     <div className="whoop-hud-pill">
-                      <span className="hud-pill-dot purple"></span>
                       <span>AIR-GAPPED SQLITE</span>
                     </div>
                   )}
@@ -179,16 +189,6 @@ export const WaitlistCards: React.FC = () => {
             ))}
           </div>
 
-          {/* Carousel Next Arrow Button */}
-          <button
-            onClick={scrollNext}
-            className="whoop-carousel-arrow-btn"
-            aria-label="Next cards"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
         </div>
 
         {/* Bottom CTA / Scarcity Link */}
@@ -258,4 +258,3 @@ export const WaitlistCards: React.FC = () => {
     </section>
   );
 };
-

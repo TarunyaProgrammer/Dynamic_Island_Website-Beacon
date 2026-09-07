@@ -13,7 +13,7 @@ export interface WaitlistSubmission {
 }
 
 const GOOGLE_SCRIPT_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbxkgZK4YcolM8MoVlkIAU2c4WvcZM3q76JhI6CeZRzMwhjwsG-8QbeE0jFLAdVoadk/exec";
+  "https://script.google.com/macros/s/AKfycbz0St01Dq2o2tjv-NQcP4I0MN8NKJmcOiWxuTZM4w-QnoSzfRnq-JlzbQ2ny1oyvcxH/exec";
 
 const STORAGE_KEY = "beacon_waitlist_subscribers";
 const BASE_CLAIMED_COUNT = 387; // Batch 01 allocation social proof baseline
@@ -61,27 +61,41 @@ export const submitToWaitlist = async (
     console.warn("[Waitlist] Local storage failed:", err);
   }
 
-  // 2. Dispatch to Google Apps Script Webhook
+  // 2. Dispatch to the public Google Apps Script webhook and verify its response.
   try {
-    // Send as text/plain with no-cors to prevent CORS preflight blocking from Google's redirect
-    await fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+    const response = await fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
       method: "POST",
-      mode: "no-cors",
       headers: {
         "Content-Type": "text/plain;charset=utf-8",
       },
       body: JSON.stringify(submission),
     });
 
+    if (!response.ok) {
+      throw new Error(`Webhook returned HTTP ${response.status}`);
+    }
+
+    const result = (await response.json()) as {
+      result?: string;
+      success?: boolean;
+      queuePosition?: number;
+      message?: string;
+    };
+
+    if (result.result !== "success" && result.success !== true) {
+      throw new Error(result.message || "Webhook did not confirm the submission");
+    }
+
     return {
       success: true,
-      queuePosition,
+      queuePosition: result.queuePosition ?? queuePosition,
     };
   } catch (netErr) {
-    console.warn("[Waitlist] Network dispatch notice (saved to local backup):", netErr);
+    console.warn("[Waitlist] Google Sheets dispatch failed; saved to local backup:", netErr);
     return {
-      success: true,
+      success: false,
       queuePosition,
+      message: "We saved a local backup, but couldn’t confirm delivery to the waitlist. Please try again.",
     };
   }
 };

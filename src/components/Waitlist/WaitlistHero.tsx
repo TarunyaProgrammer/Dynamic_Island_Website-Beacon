@@ -25,19 +25,17 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
         {/* Left Column: Bold Titles, Telemetry & Action Button */}
         <div className="beacon-hero-text-col">
           <div className="cinematic-eyebrow-pill">
-            <span className="eyebrow-pip"></span>
-            <span>NEXT-GEN MACOS WORKSPACE</span>
+            <span>MACOS, MADE PHYSICAL</span>
           </div>
 
           <h1 className="beacon-hero-headline">
-            Awaken your <br />
-            physical Mac notch with{" "}
+            Make the notch earn its place with{" "}
             <span className="headline-brand">BEACON</span>
           </h1>
 
           <p className="beacon-hero-subhead">
-            The intentional Dynamic Island & companion workspace for macOS.
-            Engineered in pure native Swift with 0.1% idle CPU. Pay $18 once, own forever.
+            A local, intentional companion workspace for macOS. Native Swift. 0.1% idle CPU.
+            Yours for $18, forever.
           </p>
 
           <div className="beacon-stats-cluster">
@@ -52,7 +50,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
             </div>
             <div className="beacon-stat-sep"></div>
             <div className="beacon-stat-block">
-              <div className="beacon-stat-num" style={{ color: "#38BDF8" }}>$18</div>
+              <div className="beacon-stat-num">$18</div>
               <div className="beacon-stat-lbl">LIFETIME PIONEER</div>
             </div>
           </div>
@@ -68,12 +66,10 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
               </div>
             </button>
 
-            {/* Subtle Interactive Mode Switchers */}
-            <div className="hero-hud-switcher" style={{ margin: 0 }}>
+            <div className="hero-hud-switcher">
               <button
                 onClick={onJoinClick}
                 className="hud-mode-pill hud-mode-active"
-                style={{ fontSize: "11px" }}
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -90,5 +86,3 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
     </section>
   );
 };
-
-

@@ -15,7 +15,11 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  const shareText = `Just secured my Pioneer Slot (#${queuePosition}) for Beacon — an intentional Dynamic Island & hardware companion for macOS. 0.1% CPU, local SQLite, no subscriptions. Lock in your $18 key before Batch 01 closes:`;
+  const shareText = `I just joined Beacon’s Pioneer Batch.
+
+It turns the MacBook notch into a quiet focus companion: native Swift, 0.1% idle CPU, local SQLite, and no subscription.
+
+$18 once. Own it forever.`;
   const shareUrl = "https://beacon.tarunya.me";
 
   const handleCopy = () => {
@@ -32,20 +36,11 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
   };
 
   return (
-    <div className="ticket-wrapper">
+    <div className="ticket-wrapper" onClick={(event) => event.stopPropagation()}>
       <div className="ticket-inner">
         {/* Top Status */}
         <div className="ticket-header">
           <div className="ticket-status-pill">
-            <span
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                backgroundColor: "#34D399",
-                boxShadow: "0 0 8px #34D399",
-              }}
-            ></span>
             <span>PIONEER ACCESS CONFIRMED</span>
           </div>
           <span className="ticket-batch-pill">BATCH 01</span>
@@ -98,7 +93,7 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
         {/* Share actions */}
         <div className="ticket-share-actions">
           <button onClick={handleTwitterShare} className="share-x-btn">
-            Post Pass to X / Twitter ↗
+            Share on X ↗
           </button>
           <button onClick={handleCopy} className="share-copy-btn">
             {copied ? "Link Copied!" : "Copy Invite Link"}
