@@ -29,7 +29,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
           </div>
 
           <h1 className="beacon-hero-headline">
-            Make the notch earn its place with{" "}
+            <span className="headline-lead">Make the notch earn its place with</span>{" "}
             <span className="headline-brand">BEACON</span>
           </h1>
 

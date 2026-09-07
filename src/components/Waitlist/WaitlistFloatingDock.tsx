@@ -72,7 +72,6 @@ export const WaitlistFloatingDock: React.FC<WaitlistFloatingDockProps> = ({ onSu
       <div className={`beacon-dock-capsule ${isShaking ? "beacon-dock-shake" : ""}`}>
         <div className="beacon-dock-context">
           <div className="beacon-dock-badge">
-            <span className="beacon-dock-badge-dot" aria-hidden="true" />
             <strong>Pioneer access</strong>
           </div>
           <span>$18 once — own forever</span>

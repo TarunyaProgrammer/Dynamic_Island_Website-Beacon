@@ -196,12 +196,6 @@ export const WaitlistCards: React.FC = () => {
           <a href="#hardware" className="whoop-cta-link">
             JOIN PIONEER WAITLIST
           </a>
-          <div className="whoop-carousel-dots">
-            <span className="whoop-dot active"></span>
-            <span className="whoop-dot"></span>
-            <span className="whoop-dot"></span>
-            <span className="whoop-dot"></span>
-          </div>
         </div>
       </div>
 
