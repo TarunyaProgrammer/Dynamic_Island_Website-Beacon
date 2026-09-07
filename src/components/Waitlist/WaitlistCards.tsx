@@ -61,7 +61,28 @@ export const WaitlistCards: React.FC<WaitlistCardsProps> = ({ onJoinClick }) => 
 
     <section id="pioneer" className="pioneer-section" aria-labelledby="pioneer-title">
       <div><p className="section-kicker">Pioneer lifetime license</p><h2 id="pioneer-title">$29 once. Keep Beacon forever.</h2><p>Reserve your Pioneer eligibility before public launch. No payment today.</p></div>
-      <div className="pioneer-inclusions"><span>All five Beacon surfaces</span><span>All six progress models</span><span>Unlimited personal Macs</span><span>Future core app updates</span><span>No subscription</span><span>30-day refund guarantee</span><p>Optional cloud services, if introduced, are separately priced.</p><button type="button" onClick={onJoinClick} className="pioneer-button">Reserve Pioneer License</button></div>
+      <div className="pioneer-inclusions">
+        <span>All five Beacon surfaces</span>
+        <span>All six progress models</span>
+        <span>Unlimited personal Macs</span>
+        <span>Future core app updates</span>
+        <span>No subscription</span>
+        <span>30-day refund guarantee</span>
+        <p>Optional cloud services, if introduced, are separately priced.</p>
+        <div className="pioneer-student-rate">
+          <div className="student-rate-header">
+            <span className="student-rate-pill">STUDENT & EDUCATOR ACCESS</span>
+          </div>
+          <p className="student-rate-desc">
+            Studying or building early? We offer a discounted Pioneer rate. Send a direct message to{" "}
+            <a href="https://x.com/tarunyakesh" target="_blank" rel="noopener noreferrer" className="student-rate-link">
+              @tarunyakesh on X ↗
+            </a>{" "}
+            for an instant academic access code.
+          </p>
+        </div>
+        <button type="button" onClick={onJoinClick} className="pioneer-button">Reserve Pioneer License</button>
+      </div>
     </section>
   </>
 );

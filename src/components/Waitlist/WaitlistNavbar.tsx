@@ -27,8 +27,8 @@ export const WaitlistNavbar: React.FC<WaitlistNavbarProps> = ({ onJoinClick }) =
           <a href="#engineering">ENGINEERING</a>
         </li>
         <li>
-          <a href="https://tarunya.me" target="_blank" rel="noopener noreferrer">
-            FOUNDER
+          <a href="https://x.com/tarunyakesh" target="_blank" rel="noopener noreferrer">
+            @TARUNYAKESH
           </a>
         </li>
       </ul>
