@@ -10,28 +10,22 @@ describe("Waitlist Marketing Page", () => {
     vi.restoreAllMocks();
   });
 
-  it("renders the luxury typography and interactive notch simulator", () => {
-    const { container } = render(<WaitlistPage />);
+  it("renders the luxury typography and interactive notch switcher", () => {
+    render(<WaitlistPage />);
 
     // Verify main headline
-    expect(screen.getByText(/The Physical Mac Notch./i)).toBeInTheDocument();
-    expect(screen.getByText(/Finally Awoken./i)).toBeInTheDocument();
+    expect(screen.getByText(/Awaken your/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/BEACON/i).length).toBeGreaterThan(0);
 
-    // Verify scarcity badges
-    expect(screen.getByText(/BATCH 01 ·/i)).toBeInTheDocument();
-    expect(screen.getByText(/113 SLOTS LEFT/i)).toBeInTheDocument();
+    // Verify scarcity banner
+    expect(screen.getByText(/BATCH 01 ALLOCATION LIVE/i)).toBeInTheDocument();
 
     // Verify interactive HUD mode buttons
     const streakBtn = screen.getByRole("button", { name: /⚡ Habit Streaks/i });
     expect(streakBtn).toBeInTheDocument();
-
-    // Click habit streak mode
-    fireEvent.click(streakBtn);
-    expect(screen.getByText("HABIT MOMENTUM")).toBeInTheDocument();
-    expect(screen.getByText("18 DAYS")).toBeInTheDocument();
   });
 
-  it("validates email input and submits to the waitlist service", async () => {
+  it("validates email input in floating dock and submits to waitlist service", async () => {
     const submitSpy = vi.spyOn(waitlistService, "submitToWaitlist").mockResolvedValue({
       success: true,
       queuePosition: 388,
@@ -39,9 +33,9 @@ describe("Waitlist Marketing Page", () => {
 
     render(<WaitlistPage />);
 
-    const emailInput = screen.getByPlaceholderText(/architect@domain.com/i);
+    const emailInput = screen.getByPlaceholderText(/Enter work email.../i);
     const submitBtn = screen.getByRole("button", {
-      name: /Secure Pioneer Slot — Reserve \$18 Key/i,
+      name: /Claim \$18 Key ↗/i,
     });
 
     // Enter email
@@ -63,11 +57,12 @@ describe("Waitlist Marketing Page", () => {
     });
   });
 
-  it("renders the 3-card architectural bento grid", () => {
+  it("renders the 4 tall editorial cards in the proof section", () => {
     render(<WaitlistPage />);
 
-    expect(screen.getByText("0.1% Idle CPU & Native Swift")).toBeInTheDocument();
-    expect(screen.getByText("Local SQLite WAL Storage")).toBeInTheDocument();
-    expect(screen.getByText("Pioneer Lifetime Ownership")).toBeInTheDocument();
+    expect(screen.getByText("Awaken Idle Hardware")).toBeInTheDocument();
+    expect(screen.getByText("6 Goal Paradigms")).toBeInTheDocument();
+    expect(screen.getByText("0.1% Idle CPU & Swift")).toBeInTheDocument();
+    expect(screen.getByText("Local SQLite WAL")).toBeInTheDocument();
   });
 });

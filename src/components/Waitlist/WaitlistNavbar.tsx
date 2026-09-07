@@ -1,43 +1,41 @@
 import React from "react";
 
 interface WaitlistNavbarProps {
-  onScrollToForm: () => void;
-  slotsRemaining: number;
+  onJoinClick: () => void;
 }
 
-export const WaitlistNavbar: React.FC<WaitlistNavbarProps> = ({
-  onScrollToForm,
-  slotsRemaining,
-}) => {
+export const WaitlistNavbar: React.FC<WaitlistNavbarProps> = ({ onJoinClick }) => {
   return (
-    <header className="waitlist-nav-wrapper">
-      <nav className="waitlist-nav-pill">
-        {/* Brand Lockup */}
-        <div className="waitlist-brand-lockup">
-          <div className="waitlist-logo-badge">
-            <span>B</span>
-          </div>
-          <span className="waitlist-brand-name">BEACON</span>
-        </div>
+    <nav className="beacon-navbar" aria-label="Main Navigation">
+      <a href="#" className="beacon-nav-logo">
+        <img
+          src="/logo.png"
+          alt="Beacon Logo"
+          className="beacon-logo-img"
+        />
+        <span className="beacon-logo-text">BEACON</span>
+      </a>
 
-        {/* Live Scarcity Telemetry Badge */}
-        <div className="waitlist-telemetry-badge">
-          <span className="pulse-dot-wrapper">
-            <span className="pulse-dot-ring"></span>
-            <span className="pulse-dot-core"></span>
-          </span>
-          <span style={{ color: "rgba(255,255,255,0.6)" }}>BATCH 01 ·</span>
-          <span style={{ color: "#F59E0B", fontWeight: 700 }}>
-            {slotsRemaining} SLOTS LEFT
-          </span>
-        </div>
+      <ul className="beacon-nav-links">
+        <li>
+          <a href="#hardware">HARDWARE</a>
+        </li>
+        <li>
+          <a href="#paradigms">PARADIGMS</a>
+        </li>
+        <li>
+          <a href="#specs">SPECIFICATIONS</a>
+        </li>
+        <li>
+          <a href="https://tarunya.me" target="_blank" rel="noopener noreferrer">
+            FOUNDER
+          </a>
+        </li>
+      </ul>
 
-        {/* Quick CTA */}
-        <button onClick={onScrollToForm} className="waitlist-nav-btn">
-          <span>Claim Key</span>
-          <span style={{ fontSize: "12px", opacity: 0.8 }}>↗</span>
-        </button>
-      </nav>
-    </header>
+      <button onClick={onJoinClick} className="beacon-nav-cta">
+        JOIN WAITLIST
+      </button>
+    </nav>
   );
 };

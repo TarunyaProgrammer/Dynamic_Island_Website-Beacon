@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { WaitlistBanner } from "./WaitlistBanner";
 import { WaitlistNavbar } from "./WaitlistNavbar";
 import { WaitlistHero } from "./WaitlistHero";
-import { WaitlistBento } from "./WaitlistBento";
+import { WaitlistCards } from "./WaitlistCards";
+import { WaitlistFloatingDock } from "./WaitlistFloatingDock";
 import { WaitlistSuccessCard } from "./WaitlistSuccessCard";
 import { WaitlistFooter } from "./WaitlistFooter";
 import { getLiveClaimedCount } from "../../services/waitlistService";
@@ -18,58 +20,57 @@ export const WaitlistPage: React.FC = () => {
 
   const slotsRemaining = Math.max(TOTAL_ALLOCATION - claimedCount, 0);
 
-  const handleScrollToForm = () => {
-    const el = document.getElementById("waitlist-form");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+  const handleFocusInput = () => {
+    const inputEl = document.getElementById("waitlist-email-input");
+    if (inputEl) {
+      inputEl.focus();
+      inputEl.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
   const handleSuccess = (data: { email: string; queuePosition: number; macModel: string }) => {
     setSuccessData(data);
     setClaimedCount(data.queuePosition);
-    const el = document.getElementById("waitlist-form");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   return (
-    <div className="waitlist-page-root">
-      {/* Precision Grid Pattern */}
-      <div className="waitlist-grid-bg" />
+    <div className="beacon-page-root">
+      {/* 1. Top Solar Amber Announcement Bar */}
+      <WaitlistBanner slotsRemaining={slotsRemaining} />
 
-      {/* Navigation */}
-      <WaitlistNavbar
-        onScrollToForm={handleScrollToForm}
-        slotsRemaining={slotsRemaining}
-      />
+      {/* 2. Minimalist Sticky Navbar */}
+      <WaitlistNavbar onJoinClick={handleFocusInput} />
 
-      {/* Main Content Area (Compact ~150-180vh) */}
-      <main style={{ position: "relative", zIndex: 10 }}>
-        {!successData ? (
-          <WaitlistHero
-            claimedCount={claimedCount}
-            totalAllocation={TOTAL_ALLOCATION}
-            onSuccess={handleSuccess}
-          />
-        ) : (
-          <div style={{ paddingTop: "140px", paddingBottom: "48px", paddingLeft: "16px", paddingRight: "16px" }}>
-            <WaitlistSuccessCard
-              email={successData.email}
-              queuePosition={successData.queuePosition}
-              macModel={successData.macModel}
-              onReset={() => setSuccessData(null)}
-            />
-          </div>
-        )}
+      {/* 3. Section 1: Pitch Black Hero (Side-by-Side Typography & Angled 3D MacBook) */}
+      <main>
+        <WaitlistHero onJoinClick={handleFocusInput} />
 
-        {/* 3-Card Architectural Bento Grid */}
-        <WaitlistBento />
+        {/* 4. Section 2: Crisp White Editorial Proof Section with 4 Tall Cards */}
+        <WaitlistCards />
       </main>
 
-      {/* Swiss Precision Minimalist Footer */}
+      {/* 5. Minimalist Swiss Footer */}
       <WaitlistFooter />
+
+      {/* 6. Persistent Floating Bottom Dock */}
+      <WaitlistFloatingDock
+        slotsRemaining={slotsRemaining}
+        totalAllocation={TOTAL_ALLOCATION}
+        claimedCount={claimedCount}
+        onSuccess={handleSuccess}
+      />
+
+      {/* 7. Success Ticket Overlay Modal */}
+      {successData && (
+        <div className="beacon-modal-overlay">
+          <WaitlistSuccessCard
+            email={successData.email}
+            queuePosition={successData.queuePosition}
+            macModel={successData.macModel}
+            onReset={() => setSuccessData(null)}
+          />
+        </div>
+      )}
     </div>
   );
 };
