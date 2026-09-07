@@ -60,13 +60,17 @@ export const WaitlistCards: React.FC<WaitlistCardsProps> = ({ onJoinClick }) => 
     </section>
 
     <section id="pioneer" className="pioneer-section" aria-labelledby="pioneer-title">
-      <div><p className="section-kicker">Pioneer lifetime license</p><h2 id="pioneer-title">$29 once. Keep Beacon forever.</h2><p>Reserve your Pioneer eligibility before public launch. No payment today.</p></div>
+      <div>
+        <p className="section-kicker">Early access · Mac focus overlay</p>
+        <h2 id="pioneer-title">$18 once. Keep Beacon forever.</h2>
+        <p>Launch offer with 14-day trial included. Price raises to $29 once the core workflow is proven.</p>
+      </div>
       <div className="pioneer-inclusions">
         <span>All five Beacon surfaces</span>
         <span>All six progress models</span>
         <span>Unlimited personal Macs</span>
         <span>Future core app updates</span>
-        <span>No subscription</span>
+        <span>14-day risk-free trial</span>
         <span>30-day refund guarantee</span>
         <p>Optional cloud services, if introduced, are separately priced.</p>
         <div className="pioneer-student-rate">
@@ -81,7 +85,7 @@ export const WaitlistCards: React.FC<WaitlistCardsProps> = ({ onJoinClick }) => 
             for an instant academic access code.
           </p>
         </div>
-        <button type="button" onClick={onJoinClick} className="pioneer-button">Reserve Pioneer License</button>
+        <button type="button" onClick={onJoinClick} className="pioneer-button">Reserve $18 Pioneer License</button>
       </div>
     </section>
   </>

@@ -54,7 +54,7 @@ export const WaitlistFooter: React.FC<WaitlistFooterProps> = ({ onJoinClick }) =
         {/* Col 3: Pioneer Access & Student Discount */}
         <div className="footer-action">
           <div className="footer-col-header">PIONEER ACCESS</div>
-          <p>Batch 01 eligibility is open. $29 one-time lifetime license.</p>
+          <p>Batch 01 eligibility: $18 early-access launch price with 14-day trial (raises to $29 later).</p>
           <div className="footer-student-callout">
             <span className="footer-student-label">Student or educator?</span>
             <a

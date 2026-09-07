@@ -19,7 +19,7 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
 
 It keeps goals, streaks and focus sessions close to the work with local-first storage and no subscription.
 
-$29 once. Core updates included.`;
+$18 launch license with 14-day trial (raises to $29 later). Core updates included.`;
   const shareUrl = "https://beacon.tarunya.me";
 
   const handleCopy = () => {
@@ -73,7 +73,7 @@ $29 once. Core updates included.`;
           <div className="privilege-row">
             <span className="privilege-check">✓</span>
             <span>
-              <strong>$29 Lifetime Price Locked</strong> with zero subscription renewals.
+              <strong>$18 Launch Price Locked</strong> with 14-day trial (raises to $29 later).
             </span>
           </div>
           <div className="privilege-row">

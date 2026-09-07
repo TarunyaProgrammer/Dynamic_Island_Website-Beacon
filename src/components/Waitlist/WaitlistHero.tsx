@@ -25,7 +25,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
         {/* Left Column: Bold Titles, Telemetry & Action Button */}
         <div className="beacon-hero-text-col">
           <div className="cinematic-eyebrow-pill">
-            <span>BUILT FOR MACOS · LOCAL-FIRST · BATCH 01</span>
+            <span>EARLY ACCESS · MAC FOCUS OVERLAY · BATCH 01</span>
           </div>
 
           <h1 className="beacon-hero-headline">
@@ -34,8 +34,8 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
           </h1>
 
           <p className="beacon-hero-subhead">
-            Beacon is an ambient execution workspace that keeps goals, streaks, focus sessions and
-            momentum one interaction away.
+            Beacon is an early-access Mac focus overlay that keeps goals, streaks, focus sessions and
+            momentum one glance away.
           </p>
 
           <div className="beacon-stats-cluster">
@@ -50,14 +50,14 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
             </div>
             <div className="beacon-stat-sep"></div>
             <div className="beacon-stat-block">
-              <div className="beacon-stat-num">$29</div>
-              <div className="beacon-stat-lbl">PIONEER LIFETIME</div>
+              <div className="beacon-stat-num">$18</div>
+              <div className="beacon-stat-lbl">LAUNCH LIFETIME · 14D TRIAL</div>
             </div>
           </div>
 
           <div className="beacon-hero-actions-row">
             <button onClick={onJoinClick} className="beacon-hero-cta group">
-              <span>RESERVE PIONEER LICENSE</span>
+              <span>RESERVE $18 PIONEER ACCESS</span>
               <div className="cta-nested-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <line x1="12" y1="5" x2="12" y2="19" />
@@ -67,7 +67,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
             </button>
 
             <button onClick={onJoinClick} className="hero-secondary-action">
-              No payment today
+              14-day trial · No payment today
             </button>
           </div>
         </div>
