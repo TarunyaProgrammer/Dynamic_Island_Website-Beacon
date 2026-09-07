@@ -17,7 +17,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
           <h1 className="beacon-hero-headline">
             Awaken your <br />
             physical Mac notch with{" "}
-            <span className="headline-serif">BEACON.</span>
+            <span className="headline-brand">BEACON</span>
           </h1>
 
           <p className="beacon-hero-subhead">

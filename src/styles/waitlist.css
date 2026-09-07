@@ -15,6 +15,8 @@
   --b-cyan: #38BDF8;
   --b-text-muted: rgba(255, 255, 255, 0.65);
   --b-text-light-body: #4A5060;
+  --font-display: "Urbanist", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -47,7 +49,7 @@
   padding: 0;
   background-color: var(--b-black);
   color: var(--b-white);
-  font-family: -apple-system, BlinkMacSystemFont, "Figtree", "SF Pro Display", sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -249,21 +251,22 @@
   }
 }
 
-/* Pure Solid Display Typography (Impeccable Standard: No tacky gradients) */
+/* Pure Solid Display Typography (WHOOP Geometric Rhythm) */
 .beacon-hero-headline {
-  font-size: clamp(44px, 5.6vw, 82px);
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: clamp(46px, 6vw, 86px);
+  font-weight: 500;
   letter-spacing: -0.04em;
-  line-height: 1.02;
+  line-height: 1.04;
   color: #FFFFFF;
   margin: 0 0 24px 0;
 }
 
-.beacon-hero-headline span.headline-serif {
-  font-family: var(--font-serif, "EB Garamond", serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--b-cyan);
+.beacon-hero-headline span.headline-brand {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
 }
 
 .beacon-hero-subhead {
