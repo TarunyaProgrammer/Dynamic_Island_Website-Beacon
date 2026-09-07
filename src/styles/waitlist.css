@@ -1,27 +1,52 @@
 /**
- * BEACON ELECTRIC COBALT & ICE CYAN LUXURY DESIGN SYSTEM
- * OLED Pitch Black (#030407) Hero transitioning into Crisp White (#FFFFFF) Proof Section
- * GPU-Accelerated Fluid Physics & High-Production Micro-Animations
+ * BEACON PRODUCTION LUXURY DESIGN SYSTEM (IMPECCABLE CRAFT STANDARD)
+ * OLED Pitch Black (#000000) Hero + Crisp White (#FFFFFF) Editorial Canvas
+ * Zero cheap gradients · Zero emojis · Real Retina screenshots · Authentic SVGs
  */
 
 :root {
-  --beacon-black: #030407;
-  --beacon-dark-card: #0A0C13;
-  --beacon-white: #FFFFFF;
-  --beacon-gray-canvas: #F8F9FB;
-  --beacon-cobalt: #4F46E5;
-  --beacon-cobalt-light: #6366F1;
-  --beacon-cobalt-glow: rgba(99, 102, 241, 0.35);
-  --beacon-cyan: #38BDF8;
-  --beacon-cyan-glow: rgba(56, 189, 248, 0.25);
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --b-black: #000000;
+  --b-dark-surface: #080A0F;
+  --b-dark-card: #0D1017;
+  --b-white: #FFFFFF;
+  --b-gray-canvas: #F5F6F9;
+  --b-cobalt: #4F46E5;
+  --b-cobalt-light: #6366F1;
+  --b-cyan: #38BDF8;
+  --b-text-muted: rgba(255, 255, 255, 0.65);
+  --b-text-light-body: #4A5060;
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Browser Surfaces */
+::selection {
+  background: var(--b-cobalt);
+  color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .beacon-page-root {
   margin: 0;
   padding: 0;
-  background-color: var(--beacon-black);
-  color: var(--beacon-white);
+  background-color: var(--b-black);
+  color: var(--b-white);
   font-family: -apple-system, BlinkMacSystemFont, "Figtree", "SF Pro Display", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,39 +55,44 @@
 }
 
 /* =========================================================================
-   1. TOP ELECTRIC COBALT BANNER
+   1. ANNOUNCEMENT BANNER (PRECISION TYPOGRAPHY)
    ========================================================================= */
 .beacon-top-banner {
-  background: linear-gradient(90deg, #3B82F6 0%, #4F46E5 50%, #6366F1 100%);
+  background: #080A0F;
   color: #FFFFFF;
+  border-bottom: 1px solid rgba(79, 70, 229, 0.3);
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 11.5px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   text-align: center;
-  padding: 9px 16px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.35);
+  gap: 12px;
   position: relative;
   z-index: 100;
 }
 
 .banner-pulse-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background-color: #38BDF8;
-  box-shadow: 0 0 10px #38BDF8;
-  animation: bannerGlow 1.6s infinite ease-in-out;
+  background-color: var(--b-cyan);
+  box-shadow: 0 0 10px var(--b-cyan);
+  animation: bannerPulse 2s infinite ease-in-out;
 }
 
-@keyframes bannerGlow {
-  0%, 100% { opacity: 0.9; transform: scale(1); box-shadow: 0 0 8px #38BDF8; }
-  50% { opacity: 0.4; transform: scale(1.4); box-shadow: 0 0 16px #38BDF8; }
+@keyframes bannerPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.3); }
+}
+
+.banner-highlight {
+  color: var(--b-cyan);
+  font-weight: 800;
 }
 
 /* =========================================================================
@@ -72,7 +102,7 @@
   position: sticky;
   top: 0;
   z-index: 90;
-  background: rgba(3, 4, 7, 0.88);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -80,7 +110,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 48px;
-  transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -99,10 +128,9 @@
 .beacon-logo-img {
   width: 32px;
   height: 32px;
-  border-radius: 9px;
+  border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 14px rgba(79, 70, 229, 0.4);
 }
 
 .beacon-logo-text {
@@ -130,7 +158,7 @@
 
 .beacon-nav-links a {
   color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
+  font-size: 11.5px;
   font-family: var(--font-mono, monospace);
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -140,41 +168,45 @@
 }
 
 .beacon-nav-links a:hover {
-  color: var(--beacon-cyan);
+  color: var(--b-cyan);
 }
 
 .beacon-nav-cta {
-  padding: 9px 24px;
+  padding: 10px 24px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #3B82F6 0%, #4F46E5 100%);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 800;
   letter-spacing: 0.04em;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.45);
-  transition: all 0.25s var(--ease-spring);
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.15);
+  transition: all 0.2s var(--ease-fluid);
 }
 
 .beacon-nav-cta:hover {
-  background: linear-gradient(135deg, #60A5FA 0%, #6366F1 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(79, 70, 229, 0.6);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.beacon-nav-cta:focus-visible {
+  outline: 2px solid var(--b-cyan);
+  outline-offset: 2px;
 }
 
 /* =========================================================================
-   3. OLED PITCH BLACK HERO (SIDE-BY-SIDE WHOOP LAYOUT)
+   3. OLED PITCH BLACK HERO
    ========================================================================= */
 .beacon-hero-section {
   position: relative;
-  background-color: var(--beacon-black);
-  min-height: 88vh;
+  background-color: var(--b-black);
+  min-height: 86vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 70px 48px 90px 48px;
+  padding: 60px 48px 80px 48px;
   overflow: hidden;
 }
 
@@ -185,23 +217,16 @@
   }
 }
 
-/* Atmospheric Ambient Radial Glows */
 .beacon-hero-glow {
   position: absolute;
-  top: 20%;
+  top: 25%;
   right: 12%;
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.22) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, rgba(56, 189, 248, 0.06) 50%, transparent 70%);
   filter: blur(120px);
   pointer-events: none;
   z-index: 1;
-  animation: atmosphericBreathe 8s infinite ease-in-out alternate;
-}
-
-@keyframes atmosphericBreathe {
-  0% { transform: scale(1) translateY(0); opacity: 0.8; }
-  100% { transform: scale(1.15) translateY(-20px); opacity: 1; }
 }
 
 .beacon-hero-grid {
@@ -224,29 +249,25 @@
   }
 }
 
+/* Pure Solid Display Typography (Impeccable Standard: No tacky gradients) */
 .beacon-hero-headline {
-  font-size: clamp(44px, 5.8vw, 84px);
+  font-size: clamp(44px, 5.6vw, 82px);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.02;
   color: #FFFFFF;
   margin: 0 0 24px 0;
-  animation: heroTextFadeUp 0.8s var(--ease-spring) both;
 }
 
-@keyframes heroTextFadeUp {
-  0% { opacity: 0; transform: translateY(24px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.beacon-hero-headline span.highlight-cyan {
-  background: linear-gradient(135deg, #FFFFFF 20%, #38BDF8 65%, #6366F1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.beacon-hero-headline span.headline-serif {
+  font-family: var(--font-serif, "EB Garamond", serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--b-cyan);
 }
 
 .beacon-hero-subhead {
-  font-size: clamp(16px, 1.8vw, 20px);
+  font-size: clamp(16px, 1.8vw, 19.5px);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.72);
   max-width: 560px;
@@ -281,13 +302,13 @@
   font-family: var(--font-mono, monospace);
   font-size: 22px;
   font-weight: 900;
-  color: var(--beacon-cyan);
+  color: #FFFFFF;
 }
 
 .beacon-stat-lbl {
   font-size: 11px;
   font-family: var(--font-mono, monospace);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -298,7 +319,7 @@
   background-color: rgba(255, 255, 255, 0.14);
 }
 
-/* Cinematic MacBook Hardware Float: Zero Box, 100% Seamless Blend */
+/* Unboxed MacBook Hardware Float */
 .beacon-mockup-frame {
   position: relative;
   display: flex;
@@ -311,21 +332,17 @@
 .macbook-render-wrapper {
   position: relative;
   width: 100%;
-  max-width: 620px;
+  max-width: 600px;
   background: transparent;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  overflow: visible;
-  animation: floatLevitate 6s ease-in-out infinite alternate;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: floatLevitate 6s ease-in-out infinite alternate;
 }
 
 @keyframes floatLevitate {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 
@@ -334,20 +351,20 @@
   height: auto;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 20px 60px rgba(79, 70, 229, 0.25));
+  filter: drop-shadow(0 24px 60px rgba(79, 70, 229, 0.22));
   /* Smoothly blend image perimeter into deep pitch black void */
-  mask-image: radial-gradient(ellipse 92% 88% at 50% 50%, #000000 78%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 92% 88% at 50% 50%, #000000 78%, transparent 100%);
-  transition: transform 0.6s var(--ease-spring);
+  mask-image: radial-gradient(ellipse 92% 88% at 50% 50%, #000000 75%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 92% 88% at 50% 50%, #000000 75%, transparent 100%);
+  transition: transform 0.6s var(--ease-fluid);
 }
 
 .macbook-render-wrapper:hover .macbook-render-img {
   transform: scale(1.02);
 }
 
-/* Interactive Floating HUD Modes Overlay */
+/* Interactive Floating HUD Modes (Real SVGs) */
 .hero-hud-switcher {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -355,21 +372,30 @@
 }
 
 .hud-mode-pill {
-  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
   border-radius: 9999px;
   font-family: var(--font-mono, monospace);
   font-size: 11px;
   font-weight: 700;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.25s var(--ease-spring);
+  transition: all 0.25s var(--ease-fluid);
+}
+
+.hud-mode-pill svg {
+  width: 13px;
+  height: 13px;
+  stroke-width: 2.2;
 }
 
 .hud-mode-active {
   background: rgba(79, 70, 229, 0.25);
-  color: #38BDF8;
+  color: var(--b-cyan);
   border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
 }
 
 .hud-mode-inactive {
@@ -384,11 +410,11 @@
 }
 
 /* =========================================================================
-   4. SECTION 2: CRISP WHITE PROOF SECTION
+   4. SECTION 2: CRISP WHITE EDITORIAL CANVAS
    ========================================================================= */
 .beacon-white-section {
-  background-color: var(--beacon-white);
-  color: #050507;
+  background-color: var(--b-white);
+  color: #000000;
   padding: 100px 48px 110px 48px;
   position: relative;
 }
@@ -414,30 +440,30 @@
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.18em;
-  color: var(--beacon-cobalt);
+  color: var(--b-cobalt);
   text-transform: uppercase;
   margin-bottom: 12px;
   display: block;
 }
 
 .white-section-title {
-  font-size: clamp(34px, 4.8vw, 64px);
+  font-size: clamp(34px, 4.8vw, 62px);
   font-weight: 900;
   letter-spacing: -0.035em;
   line-height: 1.08;
-  color: #050507;
+  color: #000000;
   margin: 0 0 20px 0;
 }
 
 .white-section-desc {
   font-size: clamp(16px, 1.8vw, 19px);
   line-height: 1.6;
-  color: #4A5060;
+  color: var(--b-text-light-body);
   max-width: 720px;
   margin: 0;
 }
 
-/* 4 Tall Editorial Cards */
+/* Asymmetric / High-Craft Editorial Visual Cards */
 .editorial-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -458,10 +484,9 @@
 
 .editorial-card {
   border-radius: 28px;
-  background: var(--beacon-dark-card);
+  background: var(--b-dark-card);
   color: #FFFFFF;
-  padding: 32px 26px;
-  min-height: 420px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -469,7 +494,7 @@
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.35s var(--ease-spring);
+  transition: all 0.35s var(--ease-fluid);
 }
 
 .editorial-card:hover {
@@ -478,52 +503,78 @@
   border-color: rgba(56, 189, 248, 0.4);
 }
 
+/* Card Visual Screenshot Frame */
+.card-media-frame {
+  width: 100%;
+  height: 170px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.card-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-fluid);
+}
+
+.editorial-card:hover .card-media-img {
+  transform: scale(1.05);
+}
+
 .card-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #38BDF8;
+  color: var(--b-cyan);
   background: rgba(56, 189, 248, 0.12);
   border: 1px solid rgba(56, 189, 248, 0.28);
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 9999px;
   width: fit-content;
+  margin-bottom: 12px;
 }
 
 .card-title {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.18;
   color: #FFFFFF;
-  margin: 18px 0 12px 0;
+  margin: 0 0 10px 0;
 }
 
 .card-body {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.65);
+  margin: 0;
 }
 
 .card-footer {
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 10.5px;
   color: rgba(255, 255, 255, 0.45);
 }
 
 .card-footer-metric {
   font-weight: 800;
-  color: #38BDF8;
+  color: var(--b-cyan);
 }
 
 /* =========================================================================
@@ -556,7 +607,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  transition: all 0.3s var(--ease-spring);
+  transition: all 0.3s var(--ease-fluid);
 }
 
 @media (max-width: 720px) {
@@ -603,14 +654,15 @@
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #FFFFFF;
+  caret-color: var(--b-cyan);
   font-size: 13px;
   outline: none;
   transition: border-color 0.2s ease;
 }
 
-.beacon-dock-input:focus {
-  border-color: var(--beacon-cyan);
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+.beacon-dock-input:focus-visible {
+  border-color: var(--b-cyan);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
 }
 
 .beacon-dock-submit {
@@ -624,7 +676,7 @@
   cursor: pointer;
   white-space: nowrap;
   box-shadow: 0 4px 18px rgba(79, 70, 229, 0.45);
-  transition: all 0.25s var(--ease-spring);
+  transition: all 0.25s var(--ease-fluid);
 }
 
 .beacon-dock-submit:hover {
@@ -632,9 +684,9 @@
   transform: translateY(-1px);
 }
 
-.beacon-dock-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.beacon-dock-submit:focus-visible {
+  outline: 2px solid var(--b-cyan);
+  outline-offset: 2px;
 }
 
 /* =========================================================================

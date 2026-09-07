@@ -21,7 +21,7 @@ describe("Waitlist Marketing Page", () => {
     expect(screen.getByText(/BATCH 01 ALLOCATION LIVE/i)).toBeInTheDocument();
 
     // Verify interactive HUD mode buttons
-    const streakBtn = screen.getByRole("button", { name: /⚡ Habit Streaks/i });
+    const streakBtn = screen.getByRole("button", { name: /Habit Streaks/i });
     expect(streakBtn).toBeInTheDocument();
   });
 

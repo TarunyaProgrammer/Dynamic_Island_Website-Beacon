@@ -12,12 +12,12 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
       <div className="beacon-hero-glow"></div>
 
       <div className="beacon-hero-grid">
-        {/* Left Column: Massive Editorial Typography */}
+        {/* Left Column: Solid Impeccable Typography */}
         <div>
           <h1 className="beacon-hero-headline">
             Awaken your <br />
             physical Mac notch with{" "}
-            <span className="highlight-cyan">BEACON.</span>
+            <span className="headline-serif">BEACON.</span>
           </h1>
 
           <p className="beacon-hero-subhead">
@@ -47,7 +47,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
           </button>
         </div>
 
-        {/* Right Column: 3D Hardware Render with Fluid Float & Interactive Modes */}
+        {/* Right Column: Unboxed 3D Hardware Render */}
         <div className="beacon-mockup-frame">
           <div className="macbook-render-wrapper">
             <img
@@ -57,31 +57,48 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
             />
           </div>
 
-          {/* Interactive HUD Switchers */}
+          {/* Interactive HUD Switchers (Real authored SVGs, zero emojis) */}
           <div className="hero-hud-switcher">
             <button
               onClick={() => setHudMode("focus")}
               className={`hud-mode-pill ${hudMode === "focus" ? "hud-mode-active" : "hud-mode-inactive"}`}
             >
-              ⌘ Focus Sprint (24:18)
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>Focus Sprint (24:18)</span>
             </button>
             <button
               onClick={() => setHudMode("streak")}
               className={`hud-mode-pill ${hudMode === "streak" ? "hud-mode-active" : "hud-mode-inactive"}`}
             >
-              ⚡ Habit Streaks (18 Days)
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              <span>Habit Streaks (18 Days)</span>
             </button>
             <button
               onClick={() => setHudMode("music")}
               className={`hud-mode-pill ${hudMode === "music" ? "hud-mode-active" : "hud-mode-inactive"}`}
             >
-              ♬ Apple Music HUD
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
+              <span>Media HUD</span>
             </button>
             <button
               onClick={() => setHudMode("specs")}
               className={`hud-mode-pill ${hudMode === "specs" ? "hud-mode-active" : "hud-mode-inactive"}`}
             >
-               0.1% CPU · SQLite
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              <span>0.1% CPU · SQLite</span>
             </button>
           </div>
         </div>

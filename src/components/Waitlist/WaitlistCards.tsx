@@ -17,9 +17,17 @@ export const WaitlistCards: React.FC = () => {
         </div>
 
         <div className="editorial-cards-grid">
-          {/* Card 1: Awaken Hardware */}
+          {/* Card 1: Real Hardware Notch Screenshot */}
           <div className="editorial-card">
             <div>
+              <div className="card-media-frame">
+                <img
+                  src="/assets/macbook-notch-mockup.jpg"
+                  alt="Real MacBook Notch HUD running Beacon"
+                  className="card-media-img"
+                  loading="lazy"
+                />
+              </div>
               <div className="card-badge">HARDWARE INTEGRATION</div>
               <h3 className="card-title">Awaken Idle Hardware</h3>
               <p className="card-body">
@@ -33,9 +41,17 @@ export const WaitlistCards: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 2: 6 Paradigms */}
+          {/* Card 2: Real Dashboard & 6 Paradigms */}
           <div className="editorial-card">
             <div>
+              <div className="card-media-frame">
+                <img
+                  src="/assets/dashboard-clean.png"
+                  alt="Beacon 6 Goal Paradigms Workspace"
+                  className="card-media-img"
+                  loading="lazy"
+                />
+              </div>
               <div className="card-badge" style={{ color: "#34D399", borderColor: "rgba(52,211,153,0.3)", background: "rgba(52,211,153,0.1)" }}>
                 BEHAVIORAL ENGINE
               </div>
@@ -51,9 +67,17 @@ export const WaitlistCards: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 3: 0.1% CPU */}
+          {/* Card 3: Menubar Hub & 0.1% CPU */}
           <div className="editorial-card">
             <div>
+              <div className="card-media-frame">
+                <img
+                  src="/assets/menubar-hub-clean.png"
+                  alt="Beacon Native Swift Menubar Telemetry"
+                  className="card-media-img"
+                  loading="lazy"
+                />
+              </div>
               <div className="card-badge" style={{ color: "#38BDF8", borderColor: "rgba(56,189,248,0.3)", background: "rgba(56,189,248,0.1)" }}>
                 NATIVE PERFORMANCE
               </div>
@@ -69,9 +93,17 @@ export const WaitlistCards: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 4: Air-Gapped Privacy */}
+          {/* Card 4: Clean Dynamic Island Notch & SQLite WAL */}
           <div className="editorial-card">
             <div>
+              <div className="card-media-frame">
+                <img
+                  src="/assets/notch-island-clean.png"
+                  alt="Beacon Local SQLite Air-Gapped HUD"
+                  className="card-media-img"
+                  loading="lazy"
+                />
+              </div>
               <div className="card-badge" style={{ color: "#818CF8", borderColor: "rgba(129,140,248,0.3)", background: "rgba(129,140,248,0.1)" }}>
                 AIR-GAPPED PRIVACY
               </div>
