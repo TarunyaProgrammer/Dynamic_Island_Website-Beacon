@@ -17,9 +17,9 @@ export const WaitlistSuccessCard: React.FC<WaitlistSuccessCardProps> = ({
 
   const shareText = `I just joined Beacon’s Pioneer Batch.
 
-It turns the MacBook notch into a quiet focus companion: native Swift, 0.1% idle CPU, local SQLite, and no subscription.
+It keeps goals, streaks and focus sessions close to the work with local-first storage and no subscription.
 
-$18 once. Own it forever.`;
+$29 once. Core updates included.`;
   const shareUrl = "https://beacon.tarunya.me";
 
   const handleCopy = () => {
@@ -73,13 +73,13 @@ $18 once. Own it forever.`;
           <div className="privilege-row">
             <span className="privilege-check">✓</span>
             <span>
-              <strong>$18 Lifetime Price Locked</strong> — zero subscription renewals.
+              <strong>$29 Lifetime Price Locked</strong> with zero subscription renewals.
             </span>
           </div>
           <div className="privilege-row">
             <span className="privilege-check">✓</span>
             <span>
-              <strong>Private DMG / TestFlight Build</strong> dispatched to your email before public launch.
+              <strong>Private release build</strong> dispatched to your email before public launch.
             </span>
           </div>
           <div className="privilege-row">

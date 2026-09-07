@@ -139,11 +139,10 @@ Replaced flat software screenshots with photorealistic Space Black MacBook Pro L
 
 ## 6. Commerce, Security & Accessibility Architecture
 
-### Razorpay Universal Checkout Integration (`RazorpayModal.tsx`)
-- Universal USD ($18) checkout with automated instant license generation and delivery.
-- Processes payments via Razorpay's 256-bit SSL encrypted gateway supporting UPI, Credit/Debit cards, NetBanking, and Apple Pay.
-- Built-in Sandbox simulator for instantaneous end-to-end testing.
-- **License Delivery (`LicenseSuccessModal.tsx`)**: Triggers real-time cryptographic license generation (`BCN-LIFE-XXXX-XXXX-XXXX`), confetti burst (`canvas-confetti`), 1-click clipboard copy, and immediate universal macOS DMG download link.
+### Lemon Squeezy Universal Checkout Integration
+- Universal USD ($18) checkout with automated instant license generation and delivery via Lemon Squeezy SDK.
+- Hosted merchant-of-record processing supporting Credit/Debit cards, Apple Pay, and PayPal with global compliance and EU VAT handling.
+- **License Delivery**: Triggers real-time license generation, 1-click clipboard copy, and immediate universal macOS DMG download link.
 
 ### WCAG 2.2 AA Accessibility Compliance
 - **Text Contrast**: All headings maintain ≥ 15.5:1 contrast against light cards (`#191A19` on `#FAF8EE` / `#FFFFFF`).

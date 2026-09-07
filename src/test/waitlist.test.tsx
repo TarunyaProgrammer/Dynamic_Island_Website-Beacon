@@ -10,7 +10,7 @@ describe("Waitlist Marketing Page", () => {
     vi.restoreAllMocks();
   });
 
-  it("renders the Beacon launch headline and interactive controls", () => {
+  it("renders the Beacon launch headline and Pioneer allocation", () => {
     render(<WaitlistPage />);
 
     // Verify main headline
@@ -18,11 +18,9 @@ describe("Waitlist Marketing Page", () => {
     expect(screen.getAllByText(/BEACON/i).length).toBeGreaterThan(0);
 
     // Verify scarcity banner
-    expect(screen.getByText(/BATCH 01 ALLOCATION LIVE/i)).toBeInTheDocument();
+    expect(screen.getByText(/PIONEER LICENSES REMAIN/i)).toBeInTheDocument();
 
-    // Verify interactive HUD mode buttons
-    const streakBtn = screen.getByRole("button", { name: /Habit Streaks/i });
-    expect(streakBtn).toBeInTheDocument();
+    expect(screen.getByText(/Don't break flow. Just glance./i)).toBeInTheDocument();
   });
 
   it("validates email input in floating dock and submits to waitlist service", async () => {
@@ -57,13 +55,14 @@ describe("Waitlist Marketing Page", () => {
     });
   });
 
-  it("renders the 4 tall editorial cards in the proof section", () => {
+  it("progressively reveals the five product surfaces and six progress models", () => {
     render(<WaitlistPage />);
 
-    expect(screen.getByText("Awaken Idle Hardware")).toBeInTheDocument();
-    expect(screen.getByText("6 Goal Paradigms")).toBeInTheDocument();
-    expect(screen.getByText("0.1% Idle CPU & Swift")).toBeInTheDocument();
-    expect(screen.getByText("Local SQLite WAL")).toBeInTheDocument();
+    expect(screen.getByText("Five surfaces. One state.")).toBeInTheDocument();
+    expect(screen.getByText("Command Engine")).toBeInTheDocument();
+    expect(screen.getByText("Spirit")).toBeInTheDocument();
+    expect(screen.getByText("Not every goal should be tracked the same way.")).toBeInTheDocument();
+    expect(screen.getByText("Avoidance")).toBeInTheDocument();
   });
 
   it("closes the pioneer ticket when its backdrop is clicked", async () => {

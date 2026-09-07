@@ -46,11 +46,11 @@ export const WaitlistPage: React.FC = () => {
         <WaitlistHero onJoinClick={handleFocusInput} />
 
         {/* 4. Section 2: Crisp White Editorial Proof Section with 4 Tall Cards */}
-        <WaitlistCards />
+        <WaitlistCards onJoinClick={handleFocusInput} />
       </main>
 
       {/* 5. Minimalist Swiss Footer */}
-      <WaitlistFooter />
+      <WaitlistFooter onJoinClick={handleFocusInput} />
 
       {/* 6. Persistent Floating Bottom Dock */}
       <WaitlistFloatingDock onSuccess={handleSuccess} />

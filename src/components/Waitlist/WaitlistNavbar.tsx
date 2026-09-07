@@ -18,13 +18,13 @@ export const WaitlistNavbar: React.FC<WaitlistNavbarProps> = ({ onJoinClick }) =
 
       <ul className="beacon-nav-links">
         <li>
-          <a href="#hardware">HARDWARE</a>
+          <a href="#surfaces">SURFACES</a>
         </li>
         <li>
-          <a href="#paradigms">PARADIGMS</a>
+          <a href="#models">PROGRESS MODELS</a>
         </li>
         <li>
-          <a href="#specs">SPECIFICATIONS</a>
+          <a href="#engineering">ENGINEERING</a>
         </li>
         <li>
           <a href="https://tarunya.me" target="_blank" rel="noopener noreferrer">
@@ -34,7 +34,7 @@ export const WaitlistNavbar: React.FC<WaitlistNavbarProps> = ({ onJoinClick }) =
       </ul>
 
       <button onClick={onJoinClick} className="beacon-nav-cta">
-        CLAIM ACCESS
+        RESERVE LICENSE
       </button>
     </nav>
   );

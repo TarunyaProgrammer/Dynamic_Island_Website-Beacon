@@ -25,39 +25,39 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
         {/* Left Column: Bold Titles, Telemetry & Action Button */}
         <div className="beacon-hero-text-col">
           <div className="cinematic-eyebrow-pill">
-            <span>MACOS, MADE PHYSICAL</span>
+            <span>BUILT FOR MACOS · LOCAL-FIRST · BATCH 01</span>
           </div>
 
           <h1 className="beacon-hero-headline">
-            <span className="headline-lead">Make the notch earn its place with</span>{" "}
-            <span className="headline-brand">BEACON</span>
+            <span className="headline-lead">Make the notch earn its place.</span>{" "}
+            <span className="headline-brand">Don't break flow. Just glance.</span>
           </h1>
 
           <p className="beacon-hero-subhead">
-            A local, intentional companion workspace for macOS. Native Swift. 0.1% idle CPU.
-            Yours for $18, forever.
+            Beacon is an ambient execution workspace that keeps goals, streaks, focus sessions and
+            momentum one interaction away.
           </p>
 
           <div className="beacon-stats-cluster">
             <div className="beacon-stat-block">
+              <div className="beacon-stat-num">LOCAL</div>
+              <div className="beacon-stat-lbl">FIRST BY DEFAULT</div>
+            </div>
+            <div className="beacon-stat-sep"></div>
+            <div className="beacon-stat-block">
               <div className="beacon-stat-num">0.1%</div>
-              <div className="beacon-stat-lbl">IDLE CPU LOAD</div>
+              <div className="beacon-stat-lbl">IDLE CPU</div>
             </div>
             <div className="beacon-stat-sep"></div>
             <div className="beacon-stat-block">
-              <div className="beacon-stat-num">45 MB</div>
-              <div className="beacon-stat-lbl">RAM FOOTPRINT</div>
-            </div>
-            <div className="beacon-stat-sep"></div>
-            <div className="beacon-stat-block">
-              <div className="beacon-stat-num">$18</div>
-              <div className="beacon-stat-lbl">LIFETIME PIONEER</div>
+              <div className="beacon-stat-num">$29</div>
+              <div className="beacon-stat-lbl">PIONEER LIFETIME</div>
             </div>
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
             <button onClick={onJoinClick} className="beacon-hero-cta group">
-              <span>CLAIM PIONEER ACCESS</span>
+              <span>RESERVE PIONEER LICENSE</span>
               <div className="cta-nested-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <line x1="12" y1="5" x2="12" y2="19" />
@@ -66,17 +66,9 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
               </div>
             </button>
 
-            <div className="hero-hud-switcher">
-              <button
-                onClick={onJoinClick}
-                className="hud-mode-pill hud-mode-active"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                </svg>
-                <span>Habit Streaks (18 Days)</span>
-              </button>
-            </div>
+            <button onClick={onJoinClick} className="hero-secondary-action">
+              No payment today
+            </button>
           </div>
         </div>
 

@@ -8,7 +8,7 @@ export const WaitlistBanner: React.FC<WaitlistBannerProps> = ({ slotsRemaining }
   return (
     <div className="beacon-top-banner" role="region" aria-label="Batch Announcement">
       <span>
-        BATCH 01 ALLOCATION LIVE · ONLY {slotsRemaining} PIONEER SLOTS REMAINING BEFORE PUBLIC LAUNCH ($49/YR)
+        BATCH 01 · {slotsRemaining} / 500 PIONEER LICENSES REMAIN · $29 ONCE · LIFETIME CORE UPDATES
       </span>
     </div>
   );

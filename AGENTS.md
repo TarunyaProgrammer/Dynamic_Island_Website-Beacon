@@ -50,8 +50,7 @@
 
 - **Hero Offer**: **Pioneer Lifetime License — $18 USD** (One-time payment).
 - **Positioning**: "Own Beacon forever. Zero subscriptions, zero renewal anxiety."
-- **Guarantee**: "14-Day No-Questions-Asked Money-Back Guarantee."
-- **Gateway**: Instant Razorpay Checkout (UPI, Cards, NetBanking, Apple Pay) with automated license key delivery on screen and via email.
+- **Gateway**: Lemon Squeezy Checkout (Cards, Apple Pay, PayPal) with automated license delivery.
 
 ---
 
