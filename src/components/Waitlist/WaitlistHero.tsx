@@ -55,7 +55,7 @@ export const WaitlistHero: React.FC<WaitlistHeroProps> = ({ onJoinClick }) => {
             </div>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+          <div className="beacon-hero-actions-row">
             <button onClick={onJoinClick} className="beacon-hero-cta group">
               <span>RESERVE PIONEER LICENSE</span>
               <div className="cta-nested-icon">
